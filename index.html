@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serah Muindi | Counseling Psychologist & Business Strategist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #0a0a0a;
+      --deep: #111111;
+      --card: #161616;
+      --gold: #c9a84c;
+      --gold-light: #e8cb7a;
+      --gold-dim: rgba(201,168,76,0.12);
+      --gold-border: rgba(201,168,76,0.25);
+      --white: #f5f0e8;
+      --muted: rgba(245,240,232,0.55);
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Jost', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: var(--sans); font-weight: 300; overflow-x: hidden; cursor: none; }
+
+    /* CURSOR */
+    .cursor { position: fixed; width: 8px; height: 8px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); }
+    .cursor-ring { position: fixed; width: 32px; height: 32px; border: 1px solid var(--gold-border); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: all 0.18s ease; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 24px 60px; background: linear-gradient(to bottom, rgba(10,10,10,0.97) 0%, transparent 100%); transition: background 0.3s; }
+    nav.scrolled { background: rgba(10,10,10,0.98); border-bottom: 1px solid var(--gold-border); }
+    .nav-logo { font-family: var(--serif); font-size: 1.2rem; letter-spacing: 0.06em; color: var(--white); text-decoration: none; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold-border); padding: 10px 22px; text-decoration: none; transition: all 0.3s; }
+    .nav-cta:hover { background: var(--gold-dim); border-color: var(--gold); }
+
+    /* HERO */
+    #hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; position: relative; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 100% at 80% 50%, rgba(201,168,76,0.07) 0%, transparent 65%); }
+    .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px); background-size: 80px 80px; }
+    .hero-left { position: relative; z-index: 2; padding: 140px 60px 100px; }
+    .hero-eyebrow { font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; display: flex; align-items: center; gap: 14px; }
+    .hero-eyebrow::after { content: ''; display: block; width: 40px; height: 1px; background: var(--gold-border); }
+    h1.hero-name { font-family: var(--serif); font-size: clamp(3.2rem, 5.5vw, 5.5rem); font-weight: 300; line-height: 1.05; margin-bottom: 20px; }
+    h1.hero-name em { font-style: italic; color: var(--gold-light); display: block; }
+    .hero-tagline { font-family: var(--serif); font-size: clamp(1rem, 1.8vw, 1.3rem); font-style: italic; color: var(--muted); margin-bottom: 16px; line-height: 1.6; }
+    .hero-role { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 48px; }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-gold { background: var(--gold); color: var(--black); font-family: var(--sans); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; padding: 15px 36px; text-decoration: none; transition: background 0.3s; display: inline-block; }
+    .btn-gold:hover { background: var(--gold-light); }
+    .btn-outline { border: 1px solid var(--gold-border); color: var(--white); font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 15px 36px; text-decoration: none; transition: all 0.3s; display: inline-block; }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+    .hero-stats { display: flex; gap: 40px; margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--gold-border); }
+    .stat-num { font-family: var(--serif); font-size: 2.4rem; font-weight: 300; color: var(--gold); line-height: 1; }
+    .stat-label { font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+    .hero-right { position: relative; height: 100vh; overflow: hidden; }
+    .hero-photo { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: grayscale(15%); }
+    .hero-photo-overlay { position: absolute; inset: 0; background: linear-gradient(to right, var(--black) 0%, transparent 30%, transparent 70%, rgba(10,10,10,0.4) 100%), linear-gradient(to top, rgba(10,10,10,0.5) 0%, transparent 40%); }
+    .hero-scroll { position: absolute; bottom: 40px; left: 60px; display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 0.58rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); animation: pulse 2.5s ease-in-out infinite; z-index: 3; }
+    .hero-scroll-line { width: 1px; height: 36px; background: linear-gradient(to bottom, var(--gold), transparent); }
+
+    /* ABOUT */
+    #about { padding: 120px 60px; background: var(--deep); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 100px; max-width: 1200px; margin: 0 auto; align-items: start; }
+    .about-img-wrap { position: relative; }
+    .about-img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center top; border: 1px solid var(--gold-border); display: block; }
+    .about-badge { position: absolute; bottom: -20px; right: -20px; width: 110px; height: 110px; background: var(--gold); display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; }
+    .about-badge-num { font-family: var(--serif); font-size: 2rem; font-weight: 300; color: var(--black); line-height: 1; }
+    .about-badge-sub { font-size: 0.5rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); font-weight: 500; margin-top: 4px; }
+    .section-label { font-size: 0.63rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+    .section-title { font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 300; line-height: 1.15; margin-bottom: 20px; }
+    .section-title em { font-style: italic; color: var(--gold-light); }
+    .divider { width: 50px; height: 1px; background: var(--gold); margin-bottom: 32px; }
+    .about-body p { font-size: 0.96rem; line-height: 1.9; color: rgba(245,240,232,0.72); margin-bottom: 18px; }
+    .about-body p.lead { font-family: var(--serif); font-size: 1.2rem; font-style: italic; color: var(--white); margin-bottom: 24px; line-height: 1.65; }
+    .cred-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--gold-border); }
+    .cred-tag { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 14px; border: 1px solid var(--gold-border); color: var(--gold); }
+    .media-strip { margin-top: 40px; }
+    .media-label { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+    .media-logos { display: flex; gap: 20px; flex-wrap: wrap; }
+    .media-logo { font-size: 0.7rem; letter-spacing: 0.1em; color: rgba(245,240,232,0.35); font-family: var(--serif); }
+
+    /* PHILOSOPHY */
+    .philosophy { padding: 80px 60px; border-top: 1px solid var(--gold-border); border-bottom: 1px solid var(--gold-border); }
+    .philosophy-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 60px; max-width: 1200px; margin: 0 auto; }
+    .phil-num { font-family: var(--serif); font-size: 3rem; font-weight: 300; color: var(--gold-border); line-height: 1; margin-bottom: 20px; }
+    .phil-title { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; margin-bottom: 14px; line-height: 1.35; }
+    .phil-body { font-size: 0.84rem; line-height: 1.8; color: var(--muted); }
+
+    /* SERVICES */
+    #services { padding: 120px 60px; }
+    .services-header { max-width: 700px; margin: 0 auto 80px; text-align: center; }
+    .services-header p { font-size: 0.96rem; line-height: 1.85; color: var(--muted); margin-top: 20px; }
+    .services-list { max-width: 1100px; margin: 0 auto; }
+    .svc-card { display: grid; grid-template-columns: 280px 1fr auto; gap: 60px; align-items: start; padding: 56px 0; border-bottom: 1px solid var(--gold-border); transition: all 0.3s; }
+    .svc-card:first-child { border-top: 1px solid var(--gold-border); }
+    .svc-tag { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .svc-name { font-family: var(--serif); font-size: 1.6rem; font-weight: 300; line-height: 1.2; margin-bottom: 16px; transition: color 0.3s; }
+    .svc-card:hover .svc-name { color: var(--gold); }
+    .svc-for { font-size: 0.78rem; line-height: 1.7; color: var(--muted); }
+    .svc-for strong { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,240,232,0.5); font-weight: 400; display: block; margin-bottom: 6px; }
+    .svc-tagline { font-family: var(--serif); font-size: 1.05rem; font-style: italic; color: var(--gold-light); margin-bottom: 16px; line-height: 1.55; }
+    .svc-desc { font-size: 0.87rem; line-height: 1.85; color: var(--muted); margin-bottom: 20px; }
+    .svc-transform { padding: 16px 20px; border-left: 2px solid var(--gold); background: var(--gold-dim); }
+    .svc-transform-label { font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .svc-transform-text { font-size: 0.82rem; line-height: 1.7; color: rgba(245,240,232,0.7); }
+    .svc-action { padding-top: 6px; }
+    .btn-svc { display: inline-block; font-size: 0.67rem; letter-spacing: 0.18em; text-transform: uppercase; background: var(--gold); color: var(--black); padding: 12px 24px; text-decoration: none; white-space: nowrap; transition: background 0.3s; font-weight: 500; }
+    .btn-svc:hover { background: var(--gold-light); }
+    .btn-svc.outline { background: transparent; color: var(--gold); border: 1px solid var(--gold-border); }
+    .btn-svc.outline:hover { background: var(--gold-dim); border-color: var(--gold); }
+
+    /* TESTIMONIALS */
+    #testimonials { padding: 120px 60px; background: var(--deep); }
+    .testimonials-header { text-align: center; max-width: 600px; margin: 0 auto 72px; }
+    .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; max-width: 1200px; margin: 0 auto; }
+    .testi-card { background: var(--card); border: 1px solid var(--gold-border); padding: 40px 36px; position: relative; }
+    .testi-quote { font-family: var(--serif); font-size: 4rem; color: var(--gold-dim); line-height: 0.6; margin-bottom: 20px; }
+    .testi-text { font-size: 0.88rem; line-height: 1.8; color: rgba(245,240,232,0.75); margin-bottom: 28px; font-family: var(--serif); font-style: italic; font-weight: 300; }
+    .testi-author { display: flex; align-items: center; gap: 14px; }
+    .testi-avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 1px solid var(--gold-border); }
+    .testi-name { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; color: var(--white); }
+    .testi-role { font-size: 0.62rem; color: var(--gold); letter-spacing: 0.05em; margin-top: 3px; }
+
+    /* GALLERY */
+    #gallery { padding: 80px 60px; }
+    .gallery-label { text-align: center; margin-bottom: 40px; }
+    .gallery-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: auto auto; gap: 4px; max-width: 1200px; margin: 0 auto; }
+    .gallery-item { overflow: hidden; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; filter: grayscale(20%); }
+    .gallery-item:hover img { transform: scale(1.03); filter: grayscale(0%); }
+    .gallery-item.tall { grid-row: span 2; }
+    .gallery-item.tall img { height: 500px; }
+    .gallery-item:not(.tall) img { height: 246px; }
+
+    /* QUOTE BREAK */
+    .quote-break { padding: 80px 60px; border-top: 1px solid var(--gold-border); border-bottom: 1px solid var(--gold-border); text-align: center; }
+    .quote-break blockquote { font-family: var(--serif); font-size: clamp(1.4rem, 3vw, 2.2rem); font-weight: 300; font-style: italic; color: var(--white); line-height: 1.5; max-width: 780px; margin: 0 auto; }
+    .quote-break cite { display: block; margin-top: 24px; font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-style: normal; }
+
+    /* CONTACT */
+    #contact { padding: 120px 60px; }
+    .contact-inner { max-width: 820px; margin: 0 auto; text-align: center; }
+    .contact-sub { font-size: 0.96rem; line-height: 1.85; color: var(--muted); margin-bottom: 60px; }
+    form { text-align: left; display: flex; flex-direction: column; gap: 20px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    label { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+    input, textarea, select { background: var(--card); border: 1px solid var(--gold-border); color: var(--white); font-family: var(--sans); font-size: 0.88rem; font-weight: 300; padding: 13px 16px; outline: none; transition: border-color 0.3s; -webkit-appearance: none; }
+    input:focus, textarea:focus, select:focus { border-color: var(--gold); }
+    textarea { height: 130px; resize: vertical; }
+    select option { background: #161616; }
+    .form-submit { text-align: center; margin-top: 8px; }
+    .btn-submit { background: var(--gold); color: var(--black); font-family: var(--sans); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; padding: 17px 56px; border: none; cursor: pointer; transition: background 0.3s; }
+    .btn-submit:hover { background: var(--gold-light); }
+
+    /* FOOTER */
+    footer { background: #070707; padding: 48px 60px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--gold-border); flex-wrap: wrap; gap: 20px; }
+    .footer-brand { font-family: var(--serif); font-size: 1.1rem; }
+    .footer-brand span { color: var(--gold); }
+    .footer-links { display: flex; gap: 28px; list-style: none; }
+    .footer-links a { font-size: 0.66rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-size: 0.65rem; color: rgba(245,240,232,0.25); }
+
+    /* ANIMATIONS */
+    @keyframes pulse { 0%,100% { opacity:0.4; } 50% { opacity:1; } }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1000px) {
+      nav { padding: 20px 24px; }
+      .nav-links { display: none; }
+      #hero { grid-template-columns: 1fr; }
+      .hero-right { height: 55vh; }
+      .hero-left { padding: 120px 24px 60px; }
+      .hero-scroll { left: 24px; }
+      #about, #services, #testimonials, #gallery, #contact { padding: 80px 24px; }
+      .about-grid { grid-template-columns: 1fr; gap: 60px; }
+      .philosophy { padding: 60px 24px; }
+      .philosophy-grid { grid-template-columns: 1fr; gap: 40px; }
+      .svc-card { grid-template-columns: 1fr; gap: 24px; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item.tall { grid-row: auto; }
+      .gallery-item.tall img, .gallery-item:not(.tall) img { height: 200px; }
+      footer { flex-direction: column; text-align: center; padding: 40px 24px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="ring"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">Serah <span>Muindi</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Work With Me</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-left">
+    <div class="hero-eyebrow">Counseling Psychologist &amp; Business Strategist</div>
+    <h1 class="hero-name">Serah<em>Muindi</em></h1>
+    <p class="hero-tagline">"Helping you reclaim clarity and confidence."</p>
+    <p class="hero-role">Founder · Hopewell Firm &nbsp;|&nbsp; Chevening Scholar &nbsp;|&nbsp; Mandela Washington Fellow</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-gold">Work With Me</a>
+      <a href="#services" class="btn-outline">Explore Services</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">11+</div>
+        <div class="stat-label">Years Practice</div>
+      </div>
+      <div>
+        <div class="stat-num">4/5</div>
+        <div class="stat-label">Chevening Success Rate</div>
+      </div>
+      <div>
+        <div class="stat-num">3</div>
+        <div class="stat-label">Organisations Founded</div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="Sixtyone-6.jpg" alt="Serah Muindi" class="hero-photo" />
+    <div class="hero-photo-overlay"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap reveal">
+      <img src="IWD_Speaker_profile-Serah.jpg" alt="Serah Muindi speaking" class="about-img" />
+      <div class="about-badge">
+        <div class="about-badge-num">11+</div>
+        <div class="about-badge-sub">Years of Practice</div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="section-label">About Serah</div>
+      <h2 class="section-title">Built from the <em>inside out.</em></h2>
+      <div class="divider"></div>
+      <div class="about-body">
+        <p class="lead">"The moment I understood that my wellbeing was the foundation of my business, everything changed. That realisation is the work I now do with others."</p>
+        <p>I am a licensed counseling psychologist, Chevening Scholar, and Mandela Washington Fellow with a Master's in Business Psychology from Loughborough University, UK. I sit at the intersection of mental health and business strategy — not because it is a niche, but because I lived the cost of keeping them separate.</p>
+        <p>I work with founders expanding into the UK and Kenyan markets, professionals building international careers, and scholarship candidates who are more qualified than they know. I also lead Sema — an online mental health platform for Africans and the diaspora — and the Athea Global Foundation, advocating for mental health access across the continent.</p>
+        <p>I have been featured by Nation Media Group, Standard Media, NTV, and KTN. I am a published researcher with work focused on addiction recovery and mental health outcomes, and a speaker at international platforms including the International Women's Day Conference 2025.</p>
+      </div>
+      <div class="cred-grid">
+        <span class="cred-tag">Chevening Scholar 2023–24</span>
+        <span class="cred-tag">MSc Business Psychology</span>
+        <span class="cred-tag">Mandela Washington Fellow</span>
+        <span class="cred-tag">Licensed Counseling Psychologist</span>
+        <span class="cred-tag">Published Researcher</span>
+        <span class="cred-tag">Founder · Hopewell Firm</span>
+        <span class="cred-tag">Founder · Sema</span>
+        <span class="cred-tag">Founder · Athea Global Foundation</span>
+      </div>
+      <div class="media-strip">
+        <div class="media-label">As featured in</div>
+        <div class="media-logos">
+          <span class="media-logo">Nation Media Group</span>
+          <span class="media-logo">Standard Media</span>
+          <span class="media-logo">NTV Kenya</span>
+          <span class="media-logo">KTN</span>
+          <span class="media-logo">Abinon National Television</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<div class="philosophy">
+  <div class="philosophy-grid">
+    <div class="reveal">
+      <div class="phil-num">01</div>
+      <h3 class="phil-title">The psychology of your pricing is the psychology of your worth</h3>
+      <p class="phil-body">Most founders don't have a pricing problem. They have a self-perception problem. We work from the inside out — because sustainable revenue begins with what you believe you deserve.</p>
+    </div>
+    <div class="reveal">
+      <div class="phil-num">02</div>
+      <h3 class="phil-title">Opportunity does not wait for the unprepared</h3>
+      <p class="phil-body">International careers and competitive scholarships are won by those who know how to articulate their value precisely and compellingly — not just by the most qualified.</p>
+    </div>
+    <div class="reveal">
+      <div class="phil-num">03</div>
+      <h3 class="phil-title">Wellbeing is a business strategy</h3>
+      <p class="phil-body">A founder running on empty makes decisions from fear. My work integrates psychological insight with business strategy because you cannot scale what you cannot sustain.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header reveal">
+    <div class="section-label">Services</div>
+    <h2 class="section-title">You already have what it takes.<br>Let's make sure <em>the world knows it.</em></h2>
+    <p>Every service exists because I have sat across from someone who was quietly brilliant and publicly hesitant. These are precision interventions designed for exactly where you are — and where you are going.</p>
+  </div>
+  <div class="services-list">
+
+    <div class="svc-card reveal">
+      <div>
+        <div class="svc-tag">For Founders</div>
+        <h3 class="svc-name">Business Strategy & Value Proposition Consulting</h3>
+        <div class="svc-for"><strong>This is for you if</strong>You know you are undercharging. You are good at what you do but struggle to articulate why clients should pay more — or you are expanding into the UK or Kenyan market.</div>
+      </div>
+      <div>
+        <p class="svc-tagline">"I stopped apologising for my prices the day I understood what I was actually selling."</p>
+        <p class="svc-desc">Strategy consulting built on business psychology. We don't just rewrite your pricing structure — we work on the thinking behind it. We clarify your value proposition, build your positioning, and create a commercialisation strategy that reflects what you are genuinely worth.</p>
+        <div class="svc-transform">
+          <div class="svc-transform-label">The transformation</div>
+          <div class="svc-transform-text">You move from underpricing and second-guessing every quote to confidently charging your worth — and attracting clients who recognise it.</div>
+        </div>
+      </div>
+      <div class="svc-action"><a href="#contact" class="btn-svc">Enquire Now</a></div>
+    </div>
+
+    <div class="svc-card reveal">
+      <div>
+        <div class="svc-tag">For Professionals & Founders</div>
+        <h3 class="svc-name">Premium Mentorship Programme</h3>
+        <div class="svc-for"><strong>This is for you if</strong>You are skilled, experienced, and quietly certain you are capable of more. You want accountability, strategy, and a mentor who has navigated international landscapes.</div>
+      </div>
+      <div>
+        <p class="svc-tagline">"The gap between where you are and where you want to be is rarely about skill. It is almost always about strategy and self-belief."</p>
+        <p class="svc-desc">A ten-session premium mentorship engagement for founders and professionals who are ready to move. We work through your goals with precision — refining your positioning, developing your strategy, challenging your assumptions.</p>
+        <div class="svc-transform">
+          <div class="svc-transform-label">The transformation</div>
+          <div class="svc-transform-text">You finish with a refined direction, the confidence to pursue international opportunities, and a clear strategy for what comes next.</div>
+        </div>
+      </div>
+      <div class="svc-action"><a href="#contact" class="btn-svc">Apply Now</a></div>
+    </div>
+
+    <div class="svc-card reveal">
+      <div>
+        <div class="svc-tag">For Professionals</div>
+        <h3 class="svc-name">International Career Strategy Consulting</h3>
+        <div class="svc-for"><strong>This is for you if</strong>You are an African professional ready to take your career international. You want to apply, interview, and negotiate — not just dream about it.</div>
+      </div>
+      <div>
+        <p class="svc-tagline">"You are not overreaching. You are under-positioned. There is a difference."</p>
+        <p class="svc-desc">We work on your personal brand for international markets, your application and interview strategy, and how to negotiate for the role and compensation you deserve. I bring lived experience as a Chevening Scholar and Mandela Washington Fellow.</p>
+        <div class="svc-transform">
+          <div class="svc-transform-label">The transformation</div>
+          <div class="svc-transform-text">You move from aspiration to action — securing international roles and negotiating packages that reflect your actual value.</div>
+        </div>
+      </div>
+      <div class="svc-action"><a href="#contact" class="btn-svc">Book a Consult</a></div>
+    </div>
+
+    <div class="svc-card reveal">
+      <div>
+        <div class="svc-tag">For Scholarship Candidates</div>
+        <h3 class="svc-name">Scholarship Application Review & Strategy</h3>
+        <div class="svc-for"><strong>This is for you if</strong>You have been rejected before and don't know why. You are qualified — perhaps overqualified — but your application isn't reflecting that.</div>
+      </div>
+      <div>
+        <p class="svc-tagline">"Rejection is not evidence that you are not good enough. It is evidence that your application has not yet found the right language."</p>
+        <p class="svc-desc">I review applications for Chevening, Mandela Washington, and similar programmes as a fellow alumni who has been on the inside. This is a strategic review of how you are telling your story — not proofreading. Candidates I have supported have gone from multiple rejections to successful award.</p>
+        <div class="svc-transform">
+          <div class="svc-transform-label">The transformation</div>
+          <div class="svc-transform-text">You submit an application you are genuinely proud of — one that accurately reflects the full weight of your experience and potential.</div>
+        </div>
+      </div>
+      <div class="svc-action"><a href="#contact" class="btn-svc">Submit for Review</a></div>
+    </div>
+
+    <div class="svc-card reveal">
+      <div>
+        <div class="svc-tag">Digital Product</div>
+        <h3 class="svc-name">Fill Your Caseload Using Social Media</h3>
+        <div class="svc-for"><strong>This is for you if</strong>You are a practitioner or consultant using social media but not converting followers into clients — or you're not sure where to start.</div>
+      </div>
+      <div>
+        <p class="svc-tagline">"Social media is not just a broadcast channel. In the right hands, it is a conversion system."</p>
+        <p class="svc-desc">This digital guide distils exactly how I built my own client pipeline through LinkedIn, TikTok, and Instagram — without paid advertising. Built on the psychology of how clients make decisions online.</p>
+        <div class="svc-transform">
+          <div class="svc-transform-label">The transformation</div>
+          <div class="svc-transform-text">You move from posting and hoping to posting with purpose — a social media presence that generates enquiries consistently.</div>
+        </div>
+      </div>
+      <div class="svc-action"><a href="https://selar.com/me/products" target="_blank" class="btn-svc outline">Get the Guide</a></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- QUOTE BREAK -->
+<div class="quote-break">
+  <blockquote>
+    The work I do is not about fixing what is broken. It is about unlocking what has always been there — and making sure the world finally gets to see it.
+    <cite>— Serah Muindi, Founder · Hopewell Firm</cite>
+  </blockquote>
+</div>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="testimonials-header reveal">
+    <div class="section-label">Testimonials</div>
+    <h2 class="section-title">What clients <em>say</em></h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">Serah supported our candidates at Study in Italy who applied for the Chevening scholarship 2025/26. Out of 5 candidates, 4 were able to win the scholarship. Her role in guiding them on writing winning essays and conducting mock interviews are without doubt why we achieved this success.</p>
+      <div class="testi-author">
+        <img src="1.png" alt="Hilda Gloria Ndiwabeene" class="testi-avatar" />
+        <div>
+          <div class="testi-name">Hilda Gloria Ndiwabeene</div>
+          <div class="testi-role">Education Consultant & Co-founder, Study in Italy</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">I just finished my MSc Applied Positive Psychology at the University of East London through the Chevening Scholarship 2024/25. I met Serah when I was preparing for my Chevening interview. I needed to talk to someone who had made it through the scholarship in my line of Psychology — and she was exactly that.</p>
+      <div class="testi-author">
+        <img src="2.png" alt="Bagele Moalosi" class="testi-avatar" />
+        <div>
+          <div class="testi-name">Bagele Moalosi</div>
+          <div class="testi-role">Chevening Scholar 2024/25 · University of East London</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">Serah offers exceptionally skilled insider insights into the Chevening application process. Her guidance was invaluable — from detailed essay feedback to practical interview preparation. Beyond that, she provided constant encouragement and even mental health support during the more stressful moments.</p>
+      <div class="testi-author">
+        <img src="4.png" alt="Jabri Ibrahim" class="testi-avatar" />
+        <div>
+          <div class="testi-name">Jabri Ibrahim</div>
+          <div class="testi-role">Chevening Scholar 2024/25 · University of Sussex</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-label reveal">
+    <div class="section-label" style="text-align:center;">In the field</div>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item tall reveal">
+      <img src="IWD_Speaker_profile-Serah.jpg" alt="Serah Muindi speaking at Women of SNDBX" />
+    </div>
+    <div class="gallery-item reveal">
+      <img src="MWF_Award.jpg" alt="Mandela Washington Fellowship Award" />
+    </div>
+    <div class="gallery-item reveal">
+      <img src="IWD_.jpg" alt="International Women's Day Conference" />
+    </div>
+    <div class="gallery-item reveal">
+      <img src="Sixtyone-6.jpg" alt="Serah Muindi professional portrait" />
+    </div>
+    <div class="gallery-item reveal">
+      <img src="IWD_.jpg" alt="British Council event" />
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="reveal">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Let's begin your <em>journey</em></h2>
+      <div class="divider" style="margin:0 auto 32px;"></div>
+      <p class="contact-sub">Whether you're seeking personal therapy, scholarship mentorship, business strategy consulting, or a speaking engagement — I'd love to hear from you.</p>
+    </div>
+    <form class="reveal" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="your@email.com" required />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="interest">I'm Interested In</label>
+        <select id="interest">
+          <option value="">Select a service...</option>
+          <option>Business Strategy & Value Proposition Consulting</option>
+          <option>Premium Mentorship Programme</option>
+          <option>International Career Strategy Consulting</option>
+          <option>Scholarship Application Review & Strategy</option>
+          <option>Fill Your Caseload — Digital Guide</option>
+          <option>Speaking / Masterclass Enquiry</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Your Message</label>
+        <textarea id="message" placeholder="Tell me a little about yourself and what you're looking for..."></textarea>
+      </div>
+      <div class="form-submit">
+        <button type="submit" class="btn-submit">Send Message</button>
+      </div>
+    </form>
+    <div id="success" style="display:none;text-align:center;margin-top:40px;">
+      <p style="font-family:var(--serif);font-size:1.5rem;font-style:italic;color:var(--gold);">Thank you for reaching out.</p>
+      <p style="color:var(--muted);margin-top:10px;font-size:0.9rem;">I'll be in touch with you shortly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Serah <span>Muindi</span></div>
+  <ul class="footer-links">
+    <li><a href="https://www.linkedin.com/in/serah-muindi-6ab0a757/" target="_blank">LinkedIn</a></li>
+    <li><a href="https://selar.com/me/products" target="_blank">Products</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Serah Muindi · Hopewell Firm</div>
+</footer>
+
+<script>
+  // Cursor
+  const cur = document.getElementById('cursor'), ring = document.getElementById('ring');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+  (function anim(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim);})();
+  document.querySelectorAll('a,button').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{ring.style.transform='translate(-50%,-50%) scale(1.7)';cur.style.transform='translate(-50%,-50%) scale(0.4)';});
+    el.addEventListener('mouseleave',()=>{ring.style.transform='translate(-50%,-50%) scale(1)';cur.style.transform='translate(-50%,-50%) scale(1)';});
+  });
+
+  // Nav scroll
+  window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>80));
+
+  // Reveal
+  const obs = new IntersectionObserver((entries)=>entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*70);obs.unobserve(e.target);}}),{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+  // Form
+  function handleSubmit(e){e.preventDefault();document.querySelector('form').style.display='none';document.getElementById('success').style.display='block';}
+</script>
+</body>
+</html>
