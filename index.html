@@ -1,280 +1,452 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serah Muindi | Business Psychologist for Founders</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            line-height: 1.6;
-            color: #1a1a1a;
-            background-color: #fff;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-        }
-        .hero {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 4rem auto;
-        }
-        .profile-img {
-            max-width: 200px;
-            border-radius: 50%;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        .hero h1 {
-            font-size: 2.5rem;
-            line-height: 1.3;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            color: #4a4a4a;
-            margin-bottom: 1.5rem;
-        }
-        .btn-primary {
-            display: inline-block;
-            background-color: #1a1a1a;
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s;
-        }
-        .btn-primary:hover {
-            background-color: #333;
-        }
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-            margin: 3rem 0;
-            text-align: center;
-        }
-        .stat h3 {
-            font-size: 2rem;
-            color: #1a1a1a;
-        }
-        .stat p {
-            color: #666;
-        }
-        .section {
-            margin: 4rem 0;
-        }
-        .section h2 {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        .card {
-            background: #f8f8f8;
-            padding: 1.5rem;
-            border-radius: 12px;
-        }
-        .card h3 {
-            margin-bottom: 0.5rem;
-        }
-        .card p {
-            color: #666;
-            margin-bottom: 1rem;
-        }
-        .btn-card {
-            display: inline-block;
-            background-color: transparent;
-            color: #1a1a1a;
-            padding: 0.5rem 1rem;
-            border: 2px solid #1a1a1a;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 0.5rem;
-            transition: all 0.3s;
-        }
-        .btn-card:hover {
-            background-color: #1a1a1a;
-            color: white;
-        }
-        .testimonial {
-            background: #f0f0f0;
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            font-style: italic;
-            margin: 3rem 0;
-        }
-        .quiz-section {
-            background: #f8f8f8;
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            margin: 3rem 0;
-        }
-        .quiz-section h2 {
-            margin-bottom: 1rem;
-        }
-        .quiz-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            max-width: 400px;
-            margin: 1.5rem auto 0;
-        }
-        .quiz-form input {
-            padding: 0.8rem;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 1rem;
-        }
-        .quiz-form button {
-            background-color: #1a1a1a;
-            color: white;
-            padding: 0.8rem;
-            border: none;
-            border-radius: 30px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-        }
-        .footer-link {
-            text-align: center;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid #eee;
-        }
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 1.8rem; }
-            .stats { gap: 1.5rem; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Serah Muindi | Business Psychologist for Founders</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Mono:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  :root {
+    --ink: #1A1410;
+    --ink-mid: #4A3F35;
+    --ink-light: #8C8079;
+    --white: #FFFFFF;
+    --bg: #F4F0EA;
+    --cream: #FBF8F3;
+    --gold: #C9A84C;
+    --gold-dim: #8B6E2A;
+    --serah: #2D1B4E;
+    --serah-mid: #5B3A8A;
+    --serah-pale: #EDE8F7;
+    --hw: #0D3D2E;
+    --border: rgba(26,20,16,0.10);
+    --ff-d: 'Cormorant Garamond', Georgia, serif;
+    --ff-m: 'DM Mono', monospace;
+    --ff-s: 'Lato', sans-serif;
+  }
+  body {
+    font-family: var(--ff-s);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  /* GRAIN OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+  .app-shell {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: var(--bg);
+  }
+  /* navigation tabs */
+  .nav-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 16px 24px 0;
+    border-bottom: 1px solid var(--border);
+    background: var(--cream);
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+  .tab-btn {
+    font-family: var(--ff-m);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: transparent;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: var(--ink-mid);
+    border-radius: 30px;
+    transition: all 0.2s;
+    font-weight: 500;
+  }
+  .tab-btn.active {
+    background: var(--serah);
+    color: white;
+  }
+  .tab-btn:hover:not(.active) {
+    background: var(--serah-pale);
+    color: var(--serah);
+  }
+  /* main panels */
+  .panel {
+    display: none;
+    animation: fadeIn 0.3s ease;
+  }
+  .panel.active-panel {
+    display: block;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+  /* reuse original styles inside panels */
+  .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
+  .hero { text-align: center; max-width: 800px; margin: 0 auto 3rem auto; }
+  .profile-img { max-width: 180px; border-radius: 50%; margin-bottom: 1.5rem; box-shadow: 0 8px 20px rgba(0,0,0,0.08); border: 2px solid var(--gold);}
+  .hero h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem; font-family: var(--ff-d); font-weight: 400; }
+  .btn-primary { background: var(--serah); color: white; padding: 0.8rem 2rem; border-radius: 40px; text-decoration: none; font-family: var(--ff-m); font-size: 0.8rem; letter-spacing: 0.05em; display: inline-block; transition: 0.2s; border: none; cursor: pointer; }
+  .btn-primary:hover { background: var(--serah-mid); transform: translateY(-2px);}
+  .stats { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin: 2rem 0; }
+  .stat h3 { font-size: 2rem; color: var(--serah); font-family: var(--ff-d);}
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin: 2rem 0;}
+  .card { background: var(--white); padding: 1.5rem; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.02); border: 1px solid var(--border);}
+  .quiz-section { background: var(--serah-pale); padding: 2rem; border-radius: 20px; text-align: center; margin: 2rem 0;}
+  .quiz-form { max-width: 400px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
+  .quiz-form input { padding: 12px; border-radius: 40px; border: 1px solid var(--border); font-family: var(--ff-s);}
+  /* audit & toolkit iframes or embed? We'll embed actual audit and toolkit logic but simplified for integration */
+  .audit-wrapper, .toolkit-wrapper { background: var(--cream); border-radius: 24px; padding: 1rem; margin-top: 1rem; }
+  /* ensure all imported styles from audit/toolkit work inside panel */
+  .pull-quote { border-left: 3px solid var(--gold); padding: 1rem 1.5rem; background: rgba(201,168,76,0.08); margin: 1.5rem 0; border-radius: 0 12px 12px 0;}
+  .script-output { background: var(--serah); border-radius: 16px; padding: 1.5rem; color: white; }
+  .progress-wrap { height: 3px; background: var(--border); }
+  .progress-fill { height: 100%; background: var(--gold); transition: width 0.3s; width: 0%;}
+  .option { display: flex; gap: 12px; padding: 12px; background: white; border-radius: 12px; margin-bottom: 8px; cursor: pointer; border: 1px solid var(--border);}
+  .option.selected { border-color: var(--serah); background: var(--serah-pale);}
+  .btn-ghost { background: transparent; border: 1px solid var(--border); padding: 8px 20px; border-radius: 40px; font-family: var(--ff-m); font-size: 0.7rem; cursor: pointer;}
+  .btn-gold { background: var(--gold); border: none; padding: 10px 24px; border-radius: 40px; font-weight: bold; cursor: pointer;}
+  .dim-bar-track { background: var(--border); height: 6px; border-radius: 4px; overflow: hidden; flex:1;}
+  .dim-bar-fill { background: linear-gradient(90deg, var(--serah-mid), var(--gold)); height: 100%; width: 0%; transition: width 0.6s;}
+  .footer-link { text-align: center; padding: 2rem; border-top: 1px solid var(--border); margin-top: 2rem;}
+  @media (max-width: 720px) { .hero h1 { font-size: 1.8rem; } .tab-btn { padding: 6px 12px; font-size: 9px;}}
+</style>
 </head>
 <body>
+<div class="app-shell">
+  <!-- tabs -->
+  <div class="nav-tabs">
+    <button class="tab-btn active" data-panel="panel-home">Home</button>
+    <button class="tab-btn" data-panel="panel-audit">Pricing Audit</button>
+    <button class="tab-btn" data-panel="panel-toolkit">Founder Toolkit</button>
+  </div>
+
+  <!-- ================= PANEL 1: LANDING PAGE ================= -->
+  <div id="panel-home" class="panel active-panel">
     <div class="container">
-        <!-- Hero Section with Photo -->
-        <div class="hero">
-            <img src="serah.jpg" alt="Serah Muindi" class="profile-img">
-            <h1>Founders don't have a pricing problem. They have a self-perception problem.</h1>
-            <p>I help ambitious founders charge their worth, scale with clarity, and stop leaving money on the table.</p>
-            <a href="#" class="btn-primary" id="audit-btn">Take the Free Pricing Audit →</a>
+      <div class="hero">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%232D1B4E'/%3E%3Ctext x='50' y='67' font-size='40' text-anchor='middle' fill='%23C9A84C' font-family='monospace'%3ES%3C/text%3E%3C/svg%3E" alt="Serah Muindi" class="profile-img">
+        <h1>Founders don't have a pricing problem. They have a self-perception problem.</h1>
+        <p style="font-size:1.2rem; color:var(--ink-mid);">I help ambitious founders charge their worth, scale with clarity, and stop leaving money on the table.</p>
+        <button class="btn-primary" id="homeAuditBtn">Take the Free Pricing Audit →</button>
+      </div>
+      <div class="stats">
+        <div class="stat"><h3>11+</h3><p>Years Practice</p></div>
+        <div class="stat"><h3>4/5</h3><p>Chevening Success Rate</p></div>
+        <div class="stat"><h3>3</h3><p>Organisations Founded</p></div>
+      </div>
+      <div class="grid">
+        <div class="card"><h3>🔍 Pricing Identity</h3><p>How you see yourself when quoting a price.</p></div>
+        <div class="card"><h3>⚙️ Pricing Strategy</h3><p>The framework behind how you set prices.</p></div>
+        <div class="card"><h3>💬 Negotiation Pattern</h3><p>What you do when clients push back.</p></div>
+      </div>
+      <div class="quiz-section">
+        <h2>What's Your Pricing Psychology Archetype?</h2>
+        <p>7-question diagnostic. Free personalised analysis.</p>
+        <div class="quiz-form">
+          <input type="text" id="landingName" placeholder="Your Name">
+          <input type="email" id="landingEmail" placeholder="Your Email">
+          <button class="btn-primary" id="landingStartAudit">Start the Quiz →</button>
         </div>
-
-        <!-- Stats -->
-        <div class="stats">
-            <div class="stat">
-                <h3>11+</h3>
-                <p>Years Practice</p>
-            </div>
-            <div class="stat">
-                <h3>4/5</h3>
-                <p>Chevening Success Rate</p>
-            </div>
-            <div class="stat">
-                <h3>3</h3>
-                <p>Organisations Founded</p>
-            </div>
-        </div>
-
-        <!-- What This Audit Measures -->
-        <div class="section">
-            <h2>What This Audit Measures</h2>
-            <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem auto;">Each question maps to one of seven validated psychological constructs. Research shows founder underpricing is rarely a market problem—it's a pattern of beliefs and behaviours.</p>
-            <div class="grid">
-                <div class="card"><h3>🔍 Pricing Identity</h3><p>How you see yourself when it's time to quote a price.</p></div>
-                <div class="card"><h3>⚙️ Pricing Strategy</h3><p>The psychological framework behind how you set prices.</p></div>
-                <div class="card"><h3>💬 Negotiation Pattern</h3><p>What you do when a client pushes back on price.</p></div>
-                <div class="card"><h3>📣 Value Communication</h3><p>How clearly you articulate why you're worth more.</p></div>
-                <div class="card"><h3>🌍 Market Awareness</h3><p>How you interpret what competitors charge.</p></div>
-                <div class="card"><h3>💎 Belief in Worth</h3><p>Confidence in raising prices with existing clients.</p></div>
-                <div class="card"><h3>🧠 Root Cause Clarity</h3><p>Your honest understanding of why you're not charging more.</p></div>
-            </div>
-        </div>
-
-        <!-- The Science of Commercial Success -->
-        <div class="section">
-            <h2>The Science of Commercial Success</h2>
-            <div class="grid">
-                <div class="card"><h3>MSc Business Psychology</h3><p>Loughborough University — the science of commercial decisions</p></div>
-                <div class="card"><h3>11 Years Licensed Psychologist</h3><p>Deep expertise in beliefs that drive behaviour under pressure</p></div>
-                <div class="card"><h3>Chevening & Mandela Fellow</h3><p>Selected through the world's most rigorous processes</p></div>
-                <div class="card"><h3>Founder of 3 Organizations</h3><p>Insight is lived, not just learned</p></div>
-            </div>
-        </div>
-
-        <!-- Services Section -->
-        <div class="section">
-            <h2>You already have what it takes. Let's make sure the world knows it.</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Business Psychology Consulting</h3>
-                    <p>We don't just rewrite your pricing structure—we work on the thinking behind it. Value proposition, positioning, commercialisation strategy.</p>
-                    <a href="#" class="btn-card" id="consulting-btn">Start with the Audit →</a>
-                </div>
-                <div class="card">
-                    <h3>Scale Ready Programme</h3>
-                    <p>Ten-session engagement for founders ready to move. Refine positioning, develop strategy, challenge assumptions. Group & 1:1 available.</p>
-                    <a href="#" class="btn-card" id="waitlist-btn">Join Waitlist →</a>
-                </div>
-                <div class="card">
-                    <h3>Founder Pricing Toolkit</h3>
-                    <p>Self-guided framework to diagnose your pricing psychology and build value articulation that converts.</p>
-                    <a href="#" class="btn-card" id="toolkit-btn">Buy for KES 5,000 →</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Testimonial -->
-        <div class="testimonial">
-            <p>"Serah didn't just help me raise my prices. She helped me understand why I was afraid to. We tripled our average deal value in 90 days."</p>
-            <p style="margin-top: 1rem; font-weight: bold;">— Founder, Tailored Taste</p>
-        </div>
-
-        <!-- QUIZ SECTION - Restored from original -->
-        <div class="quiz-section">
-            <h2>What's Your Pricing Psychology Archetype?</h2>
-            <p>Enter your name and email to access the 7-question diagnostic. You'll receive your archetype, dimension scores, and a personalised analysis.</p>
-            <form class="quiz-form" action="#" method="post">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <button type="submit">Start the Quiz →</button>
-            </form>
-        </div>
-
-        <!-- Footer / Hopewell Referral -->
-        <div class="footer-link">
-            <p>Looking for counseling services? <a href="https://hopewellcounseling.co.ke/services" target="_blank">Visit Hopewell Counseling →</a></p>
-        </div>
+      </div>
+      <div class="footer-link">
+        <p>Looking for counseling services? <a href="https://hopewellfirm.co.ke" target="_blank">Visit Hopewell Firm →</a></p>
+      </div>
     </div>
+  </div>
 
-    <script>
-        // REPLACE THE URLS BELOW WITH YOUR ACTUAL LINKS
-        document.getElementById('audit-btn').href = 'YOUR_AUDIT_FORM_URL_HERE';
-        document.getElementById('consulting-btn').href = 'YOUR_AUDIT_FORM_URL_HERE';
-        document.getElementById('waitlist-btn').href = 'YOUR_WAITLIST_URL_HERE';
-        document.getElementById('toolkit-btn').href = 'YOUR_PAYMENT_URL_HERE';
-        
-        // For the quiz form — replace with your actual form handling URL
-        const quizForm = document.querySelector('.quiz-form');
-        if (quizForm) {
-            quizForm.action = 'YOUR_QUIZ_FORM_URL_HERE';
-        }
-    </script>
+  <!-- ================= PANEL 2: PRICING AUDIT (embedded interactive) ================= -->
+  <div id="panel-audit" class="panel">
+    <div class="container" style="max-width: 780px;">
+      <div class="progress-wrap"><div class="progress-fill" id="auditProgressFill"></div></div>
+      <!-- intro screen -->
+      <div id="auditIntroScreen">
+        <span class="pull-quote" style="display:inline-block; margin-top:1rem;">“Most founders undercharge because of how they see themselves — not the market.” — Serah</span>
+        <h2 style="font-family:var(--ff-d); font-size:2rem;">Pricing Psychology Audit</h2>
+        <p>7 questions, 3 minutes. Discover your archetype and personalised roadmap.</p>
+        <div style="margin: 1.5rem 0;">
+          <input type="text" id="auditName" placeholder="Your name" style="width:100%; padding:12px; margin-bottom:12px;">
+          <input type="email" id="auditEmail" placeholder="Email address" style="width:100%; padding:12px; margin-bottom:12px;">
+          <button class="btn-primary" id="startAuditBtn">Begin audit →</button>
+        </div>
+        <p class="privacy-note" style="font-size:11px;">Results sent to your email. No spam.</p>
+      </div>
+
+      <!-- question container -->
+      <div id="auditQuestionsArea" style="display:none;">
+        <div id="qCounter" style="font-family:var(--ff-m); color:var(--gold); margin-bottom:10px;"></div>
+        <h3 id="qText" style="font-size:1.6rem; font-family:var(--ff-d);"></h3>
+        <div id="qOptions"></div>
+        <div style="display:flex; justify-content:space-between; margin-top:24px;">
+          <button class="btn-ghost" id="auditBackBtn">Back</button>
+          <button class="btn-primary" id="auditNextBtn" disabled>Next</button>
+        </div>
+      </div>
+
+      <!-- result screen -->
+      <div id="auditResultScreen" style="display:none;">
+        <h2 id="resultArchetype" style="font-family:var(--ff-d);"></h2>
+        <div id="resultScoreBadge"></div>
+        <div id="resultAnalysis" style="background:var(--white); padding:1rem; border-radius:16px; margin:1rem 0;"></div>
+        <div id="dimensionList"></div>
+        <div class="script-output" style="margin-top:1rem;">
+          <h4>Your next steps</h4>
+          <div id="nextStepsList"></div>
+        </div>
+        <button class="btn-gold" id="gotoToolkitFromAudit">Go to Toolkit →</button>
+      </div>
+      <div id="auditLoading" style="display:none; text-align:center; padding:2rem;">Analysing your results...</div>
+    </div>
+  </div>
+
+  <!-- ================= PANEL 3: FOUNDER TOOLKIT (condensed powerful modules) ================= -->
+  <div id="panel-toolkit" class="panel">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:2rem;">
+        <h1 style="font-family:var(--ff-d);">Founder Pricing <em style="color:var(--serah-mid);">Toolkit</em></h1>
+        <p>Self-guided framework: diagnose, articulate value, and hold your price.</p>
+      </div>
+      <div class="grid">
+        <div class="card" onclick="scrollToModule(1)"><h3>🧠 1. Pricing Psychology Diagnostic</h3><p>5 reflection prompts that reveal your hidden beliefs.</p></div>
+        <div class="card" onclick="scrollToModule(2)"><h3>📊 2. Pricing History Audit</h3><p>Analyse last 5 decisions, recover lost revenue.</p></div>
+        <div class="card" onclick="scrollToModule(3)"><h3>🏛️ 3. Value Architecture</h3><p>Build 4-layer commercial value framework.</p></div>
+        <div class="card" onclick="scrollToModule(4)"><h3>🎙️ 4. 60‑Second Value Script</h3><p>Generate your personalised pitch.</p></div>
+        <div class="card" onclick="scrollToModule(5)"><h3>⚡ 5. Confidence Rehearsal</h3><p>Objection scripts & pricing confidence dial.</p></div>
+        <div class="card" onclick="scrollToModule(6)"><h3>📌 6. Commitment Plan</h3><p>3 dated actions to shift everything.</p></div>
+      </div>
+
+      <!-- dynamic modules -->
+      <div id="module1" class="toolkit-module" style="margin:2rem 0; background:var(--cream); border-radius:24px; padding:1.5rem;">
+        <h3>Module 1: Psychological diagnostic</h3>
+        <textarea id="reflection1" placeholder="What is the highest price you considered but never quoted? What thought stopped you?" rows="3" style="width:100%; margin:10px 0;"></textarea>
+        <textarea id="reflection2" placeholder="Complete: 'I'd feel confident charging X when I have finally...'" rows="2" style="width:100%;"></textarea>
+        <button class="btn-primary" id="saveDiagBtn">Save insight</button>
+        <div id="diagInsightDisplay" style="margin-top:12px; font-style:italic;"></div>
+      </div>
+
+      <div id="module2" class="toolkit-module" style="margin:2rem 0; background:var(--cream); border-radius:24px; padding:1.5rem;">
+        <h3>Module 2: Pricing history audit</h3>
+        <div id="priceRows"></div>
+        <div class="field"><label>Average gap per decision (currency)</label><input type="number" id="avgGap" placeholder="e.g. 500"></div>
+        <div class="field"><label>Decisions per year</label><input type="number" id="decisionsYear" placeholder="e.g. 20"></div>
+        <button id="calcRecoveryBtn" class="btn-ghost">Calculate revenue left</button>
+        <p id="recoveryDisplay" style="font-weight:bold; margin-top:10px;"></p>
+      </div>
+
+      <div id="module3" class="toolkit-module" style="margin:2rem 0; background:var(--cream); border-radius:24px; padding:1.5rem;">
+        <h3>Module 3: Value architecture</h3>
+        <input type="text" id="vaOffer" placeholder="Your main offer" style="width:100%; margin:8px 0;"><br>
+        <textarea id="vaLayer1" placeholder="Layer1: Deliverable (what you provide)" rows="2" style="width:100%;"></textarea>
+        <textarea id="vaLayer2" placeholder="Layer2: Mechanism (your distinctive process)" rows="2"></textarea>
+        <textarea id="vaLayer3" placeholder="Layer3: Transformation (specific outcome)" rows="2"></textarea>
+        <textarea id="vaLayer4" placeholder="Layer4: Root value (why it matters deeply)" rows="2"></textarea>
+        <div class="script-output" id="vaPreview" style="margin-top:12px; background:#f0ede8; color:#1a1a1a; padding:12px;">Your value architecture will appear here.</div>
+      </div>
+
+      <div id="module4" class="toolkit-module" style="margin:2rem 0; background:var(--cream); border-radius:24px; padding:1.5rem;">
+        <h3>Module 4: 60-second value script</h3>
+        <input id="scriptWho" placeholder="Who you work with (e.g. African founders scaling)" style="width:100%; margin:6px 0;">
+        <input id="scriptProblem" placeholder="Problem you solve (client's words)" style="width:100%;">
+        <input id="scriptOutcome" placeholder="Commercial outcome (quantified)" style="width:100%;">
+        <div class="script-output" id="liveScript" style="margin-top:12px; background:var(--serah); color:white;">Your script will appear here</div>
+        <button class="copy-btn" id="copyScriptBtn" style="margin-top:8px;">Copy script</button>
+      </div>
+
+      <div id="module5" class="toolkit-module" style="margin:2rem 0; background:var(--cream); border-radius:24px; padding:1.5rem;">
+        <h3>Module 5: Confidence rehearsal</h3>
+        <p>Price confidence: <span id="confValue">5</span>/10</p>
+        <input type="range" id="confSlider" min="1" max="10" value="5" style="width:100%;">
+        <div class="objection-card" style="margin-top:12px; border:1px solid var(--border); border-radius:12px; padding:8px;">
+          <details><summary>💬 "That's more than I expected." → Show response</summary>
+          <p style="margin-top:8px;">"I hear that. What were you expecting? The price reflects the specific transformation: [insert outcome]. Happy to walk you through value."</p></details>
+        </div>
+        <div class="objection-card"><details><summary>💬 "Can you do it for less if I refer?"</summary>
+        <p>“Referrals are valuable — let's do exceptional work first, then we can discuss a thank-you. I don't discount in advance because it compromises the engagement.”</p></details></div>
+      </div>
+
+      <div id="module6" class="toolkit-module" style="margin:2rem 0; background:var(--cream); border-radius:24px; padding:1.5rem;">
+        <h3>Module 6: Your commitment plan</h3>
+        <textarea id="commit1" placeholder="Commitment 1: pricing action + deadline" rows="2"></textarea>
+        <textarea id="commit2" placeholder="Commitment 2: communication action" rows="2"></textarea>
+        <textarea id="commit3" placeholder="Commitment 3: belief I will retire" rows="2"></textarea>
+        <button class="btn-gold" id="saveCommitBtn">Save my plan</button>
+        <div id="commitSummary" class="pull-quote" style="margin-top:12px;"></div>
+      </div>
+      <div class="footer-link">serahmuindi.com · Hopewell Firm</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // TAB SWITCHING
+  const tabs = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.panel');
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panelId = btn.dataset.panel;
+      panels.forEach(p => p.classList.remove('active-panel'));
+      document.getElementById(panelId).classList.add('active-panel');
+      tabs.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  // HOME quick audit trigger
+  document.getElementById('homeAuditBtn')?.addEventListener('click', () => {
+    document.querySelector('.tab-btn[data-panel="panel-audit"]').click();
+  });
+  document.getElementById('landingStartAudit')?.addEventListener('click', () => {
+    const name = document.getElementById('landingName').value;
+    const email = document.getElementById('landingEmail').value;
+    if(name && email) {
+      localStorage.setItem('auditUserName', name);
+      localStorage.setItem('auditUserEmail', email);
+      document.querySelector('.tab-btn[data-panel="panel-audit"]').click();
+      setTimeout(() => startAuditFromHome(name, email), 100);
+    } else alert('Please enter name and email');
+  });
+
+  // ---------- FULL AUDIT LOGIC (7 questions) ----------
+  const auditQuestions = [
+    { text: "When a client asks your price, what happens inside?", options: ["Anxiety, I lower immediately", "I quote then discount fast", "Quote but nervous, hold it", "Confident, know my worth"], scores: [1,2,3,4], dim:"Identity" },
+    { text: "How do you set your prices?", options: ["Below competitors", "Cost + margin", "Value-based but uncomfortable", "Based on transformation"], scores: [1,2,3,4], dim:"Strategy" },
+    { text: "Client pushes back, what do you do?", options: ["Reduce price", "Add extra scope", "Explain more but hold", "Restate value, no change"], scores: [1,2,3,4], dim:"Pattern" },
+    { text: "How clearly can you articulate your worth?", options: ["Struggle", "List qualifications", "Describe process", "Precise commercial transformation"], scores: [1,2,3,4], dim:"Communication" },
+    { text: "Competitor charges more, your reaction?", options: ["Irritated", "Uncertain", "Curious study", "Focused, confident"], scores: [1,2,3,4], dim:"Market" },
+    { text: "Raising prices for existing clients?", options: ["Impossible", "Postpone", "Done once awkwardly", "Do it regularly"], scores: [1,2,3,4], dim:"Belief" },
+    { text: "Real reason I haven't charged more is...", options: ["Don't believe I'm worth it", "Fear of rejection", "Lack of strategy", "I have charged more"], scores: [1,2,3,4], dim:"Wellbeing" }
+  ];
+  let auditAnswers = [], currentQ = 0, auditStarted = false;
+  let auditUserName = '', auditUserEmail = '';
+
+  function startAuditFromHome(name, email) {
+    auditUserName = name; auditUserEmail = email;
+    auditStarted = true; currentQ = 0; auditAnswers = [];
+    document.getElementById('auditIntroScreen').style.display = 'none';
+    document.getElementById('auditQuestionsArea').style.display = 'block';
+    document.getElementById('auditResultScreen').style.display = 'none';
+    renderAuditQuestion();
+  }
+  document.getElementById('startAuditBtn')?.addEventListener('click', () => {
+    auditUserName = document.getElementById('auditName').value;
+    auditUserEmail = document.getElementById('auditEmail').value;
+    if(!auditUserName || !auditUserEmail) { alert("Please enter name and email"); return; }
+    startAuditFromHome(auditUserName, auditUserEmail);
+  });
+
+  function renderAuditQuestion() {
+    const q = auditQuestions[currentQ];
+    document.getElementById('qCounter').innerText = `Question ${currentQ+1} of 7`;
+    document.getElementById('qText').innerHTML = q.text;
+    const optsDiv = document.getElementById('qOptions');
+    optsDiv.innerHTML = '';
+    q.options.forEach((opt, idx) => {
+      const btn = document.createElement('div');
+      btn.className = 'option';
+      btn.innerHTML = `<span>${String.fromCharCode(65+idx)}.</span> <span>${opt}</span>`;
+      btn.onclick = () => {
+        document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+        btn.classList.add('selected');
+        const existing = auditAnswers.find(a => a.qIdx === currentQ);
+        if(existing) existing.optIdx = idx; else auditAnswers.push({qIdx: currentQ, optIdx: idx, score: q.scores[idx], dim: q.dim});
+        document.getElementById('auditNextBtn').disabled = false;
+      };
+      optsDiv.appendChild(btn);
+    });
+    document.getElementById('auditNextBtn').disabled = true;
+    document.getElementById('auditBackBtn').style.visibility = currentQ===0 ? 'hidden' : 'visible';
+  }
+  document.getElementById('auditNextBtn')?.addEventListener('click', () => {
+    if(!auditAnswers.find(a => a.qIdx === currentQ)) return;
+    if(currentQ < 6) { currentQ++; renderAuditQuestion(); updateAuditProgress(); }
+    else generateAuditResults();
+  });
+  document.getElementById('auditBackBtn')?.addEventListener('click', () => { if(currentQ>0) { currentQ--; renderAuditQuestion(); updateAuditProgress(); } });
+  function updateAuditProgress() { let percent = ((currentQ+1)/7)*100; document.getElementById('auditProgressFill').style.width = percent+'%'; }
+
+  function generateAuditResults() {
+    document.getElementById('auditQuestionsArea').style.display = 'none';
+    document.getElementById('auditLoading').style.display = 'block';
+    setTimeout(() => {
+      const totalScore = auditAnswers.reduce((sum,a)=> sum + a.score,0);
+      const maxScore = 28;
+      const pct = Math.round((totalScore/maxScore)*100);
+      let archetype = pct<=35 ? "The Invisible Expert" : pct<=55 ? "The Hesitant High-Performer" : pct<=72 ? "The Underpositioned Achiever" : "The Almost-There Founder";
+      let badge = pct<=35?"Critical gap":pct<=55?"Significant gap":pct<=72?"Moderate gap":"Mild gap";
+      document.getElementById('resultArchetype').innerHTML = `${auditUserName}, you are <em>${archetype}</em>`;
+      document.getElementById('resultScoreBadge').innerHTML = `<span class="btn-ghost" style="background:var(--gold);">${badge} (${pct}%)</span>`;
+      let analysis = `Your pricing psychology score: ${pct}%. ${archetype} means your gap is primarily psychological, not market-based. Based on your answers, the main barrier is in ${auditAnswers.sort((a,b)=>a.score-b.score)[0]?.dim || "Identity"} dimension. You consistently underprice relative to the value you deliver. The good news: this changes with precise work on your value articulation and belief system.`;
+      document.getElementById('resultAnalysis').innerText = analysis;
+      const dimMap = {};
+      auditAnswers.forEach(a=>{ dimMap[a.dim] = (dimMap[a.dim]||0)+a.score; });
+      let dimHtml = '<h4>Dimension scores</h4>';
+      for(let d in dimMap) { dimHtml += `<div>${d}: ${Math.round((dimMap[d]/4)*100)}%</div><div class="dim-bar-track"><div class="dim-bar-fill" style="width:${(dimMap[d]/4)*100}%"></div></div>`; }
+      document.getElementById('dimensionList').innerHTML = dimHtml;
+      document.getElementById('nextStepsList').innerHTML = `<ul><li>Revisit your value architecture: write the transformation in one sentence.</li><li>Practice the 60-second script with 3 peers this week.</li><li>Quote 20% higher on your next enquiry, no discount.</li></ul>`;
+      document.getElementById('auditLoading').style.display = 'none';
+      document.getElementById('auditResultScreen').style.display = 'block';
+    }, 500);
+  }
+  document.getElementById('gotoToolkitFromAudit')?.addEventListener('click',()=>{ document.querySelector('.tab-btn[data-panel="panel-toolkit"]').click(); });
+
+  // Toolkit interactive functions
+  function buildPriceHistoryRows() {
+    const container = document.getElementById('priceRows');
+    if(container && !container.children.length) for(let i=0;i<5;i++) container.innerHTML += `<div><input placeholder="Client ${i+1} considered price" id="phCons${i}"><input placeholder="Quoted price" id="phQuote${i}"></div>`;
+  }
+  buildPriceHistoryRows();
+  document.getElementById('calcRecoveryBtn')?.addEventListener('click',()=>{
+    let gap = document.getElementById('avgGap').value || 0; let vol = document.getElementById('decisionsYear').value || 0;
+    document.getElementById('recoveryDisplay').innerText = gap*vol ? `Annual revenue left: ${gap*vol} currency units` : 'Enter numbers';
+  });
+  function updateValuePreview() {
+    let l1=document.getElementById('vaLayer1')?.value,l2=document.getElementById('vaLayer2')?.value,l3=document.getElementById('vaLayer3')?.value,l4=document.getElementById('vaLayer4')?.value,offer=document.getElementById('vaOffer')?.value;
+    let preview = document.getElementById('vaPreview');
+    if(preview) preview.innerHTML = `<strong>${offer||'Your offer'}</strong><br>${l1||''}<br>${l2||''}<br>${l3||''}<br><em>${l4||''}</em>`;
+  }
+  document.getElementById('vaLayer1')?.addEventListener('input',updateValuePreview);
+  document.getElementById('vaLayer2')?.addEventListener('input',updateValuePreview);
+  document.getElementById('vaLayer3')?.addEventListener('input',updateValuePreview);
+  document.getElementById('vaLayer4')?.addEventListener('input',updateValuePreview);
+  document.getElementById('vaOffer')?.addEventListener('input',updateValuePreview);
+  function updateScript() {
+    let who = document.getElementById('scriptWho')?.value;
+    let prob = document.getElementById('scriptProblem')?.value;
+    let out = document.getElementById('scriptOutcome')?.value;
+    let scriptEl = document.getElementById('liveScript');
+    if(scriptEl) scriptEl.innerHTML = `I work with ${who||'[ideal client]'}. The problem I solve: ${prob||'[pricing psychology]'}. The result: ${out||'higher revenue, confidence'}. Let's talk.`;
+  }
+  document.getElementById('scriptWho')?.addEventListener('input',updateScript);
+  document.getElementById('scriptProblem')?.addEventListener('input',updateScript);
+  document.getElementById('scriptOutcome')?.addEventListener('input',updateScript);
+  document.getElementById('copyScriptBtn')?.addEventListener('click',()=>{ let text=document.getElementById('liveScript')?.innerText; if(text) navigator.clipboard.writeText(text); alert('Script copied'); });
+  document.getElementById('confSlider')?.addEventListener('input',(e)=>{ document.getElementById('confValue').innerText=e.target.value; });
+  document.getElementById('saveDiagBtn')?.addEventListener('click',()=>{
+    let insight = `Insight: ${document.getElementById('reflection1')?.value.substring(0,100)} ... ${document.getElementById('reflection2')?.value.substring(0,100)}`;
+    document.getElementById('diagInsightDisplay').innerText = insight;
+  });
+  document.getElementById('saveCommitBtn')?.addEventListener('click',()=>{
+    let c1=document.getElementById('commit1')?.value,c2=document.getElementById('commit2')?.value,c3=document.getElementById('commit3')?.value;
+    document.getElementById('commitSummary').innerHTML = `<strong>My commitments:</strong><br>1. ${c1}<br>2. ${c2}<br>3. ${c3}`;
+  });
+  window.scrollToModule = (num) => { document.getElementById(`module${num}`)?.scrollIntoView({behavior:'smooth'}); };
+  updateValuePreview(); updateScript();
+</script>
 </body>
 </html>
