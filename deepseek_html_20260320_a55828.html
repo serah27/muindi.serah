@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Serah Muindi | Business Psychologist for Founders</title>
+    <meta name="description" content="Business psychologist helping founders charge their worth, scale with clarity, and stop leaving money on the table. Take the free pricing audit.">
+    <!-- Social Media Meta -->
+    <meta property="og:title" content="Serah Muindi | Business Psychologist for Founders">
+    <meta property="og:description" content="Founders don't have a pricing problem. They have a self-perception problem. Take the free audit.">
+    <meta property="og:image" content="serah.jpg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --black-rich: #0A0A0A;
+            --white: #FFFFFF;
+            --white-off: #FAFAFA;
+            --gold: #D4AF37;
+            --gold-dark: #B4942C;
+            --gold-glow: rgba(212, 175, 55, 0.15);
+            --gray: #1A1A1A;
+            --gray-light: #2A2A2A;
+            --border: rgba(255, 255, 255, 0.1);
+            --radius: 24px;
+            --radius-sm: 12px;
+            --font-heading: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+            --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: var(--font-body);
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* grain texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 32px;
+            border-bottom: 1px solid var(--border);
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, var(--white) 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: -0.2px;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--gold); }
+        .btn-outline-gold {
+            border: 1.5px solid var(--gold);
+            padding: 8px 24px;
+            border-radius: 40px;
+            background: transparent;
+            font-weight: 600;
+            color: var(--gold);
+            transition: all 0.2s;
+        }
+        .btn-outline-gold:hover { background: var(--gold); color: var(--black); }
+
+        /* Buttons */
+        .btn-primary {
+            background: var(--gold);
+            color: var(--black);
+            border: none;
+            padding: 14px 36px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            font-family: var(--font-body);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .btn-primary:hover { background: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3); }
+        .btn-secondary {
+            background: transparent;
+            border: 1.5px solid var(--gold);
+            color: var(--gold);
+            padding: 12px 32px;
+            border-radius: 60px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-secondary:hover { background: var(--gold); color: var(--black); }
+
+        /* Hero Section - Funnel Start */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding: 80px 0 60px;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .hero-content h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+        }
+        .hero-content h1 span { color: var(--gold); }
+        .hero-tagline {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 32px;
+            margin: 32px 0;
+        }
+        .hero-stats div h3 { font-size: 2rem; font-weight: 700; color: var(--gold); }
+        .hero-stats div p { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.6; }
+        .profile-img {
+            width: 100%;
+            max-width: 420px;
+            border-radius: 24px;
+            object-fit: cover;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+            border: 2px solid var(--gold);
+        }
+        
+        /* Funnel Section - Quiz Capture */
+        .funnel-section {
+            background: linear-gradient(135deg, var(--gray) 0%, var(--black-rich) 100%);
+            border-radius: var(--radius);
+            padding: 64px 48px;
+            margin: 48px 0 64px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+        .funnel-section h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+        .funnel-section h2 span { color: var(--gold); }
+        .funnel-form {
+            max-width: 500px;
+            margin: 32px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .funnel-form input {
+            padding: 16px 20px;
+            border-radius: 60px;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.05);
+            color: var(--white);
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.2s;
+        }
+        .funnel-form input:focus { border-color: var(--gold); background: rgba(255,255,255,0.1); }
+        .funnel-form input::placeholder { color: rgba(255,255,255,0.4); }
+        
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin: 32px 0 0;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+        
+        /* Value Cards */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin: 64px 0;
+        }
+        .card {
+            background: var(--gray);
+            border-radius: var(--radius-sm);
+            padding: 32px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+        .card:hover { border-color: var(--gold); transform: translateY(-4px); }
+        .card h3 { font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 12px; }
+        .card h3 span { font-size: 2rem; margin-right: 8px; }
+        
+        /* Audit Panel */
+        .audit-panel {
+            background: var(--gray);
+            border-radius: var(--radius);
+            padding: 40px;
+            margin: 40px 0;
+            border: 1px solid var(--border);
+        }
+        .progress-bar { height: 4px; background: rgba(255,255,255,0.1); border-radius: 4px; margin-bottom: 32px; }
+        .progress-fill { height: 100%; background: var(--gold); width: 0%; transition: width 0.3s; border-radius: 4px; }
+        .question-option {
+            background: rgba(255,255,255,0.05);
+            padding: 16px 20px;
+            border-radius: 60px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .question-option:hover { background: rgba(212, 175, 55, 0.1); }
+        .question-option.selected { background: rgba(212, 175, 55, 0.2); border-color: var(--gold); }
+        .dimension-bar { display: flex; align-items: center; gap: 12px; margin: 12px 0; }
+        .bar-track { flex: 1; height: 6px; background: rgba(255,255,255,0.1); border-radius: 4px; }
+        .bar-fill { height: 100%; background: var(--gold); width: 0%; border-radius: 4px; }
+        
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin: 48px 0 24px;
+        }
+        .social-icon {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 40px;
+            background: rgba(255,255,255,0.05);
+            transition: all 0.2s;
+        }
+        .social-icon:hover { background: var(--gold); color: var(--black); }
+        
+        footer {
+            text-align: center;
+            padding: 48px 24px;
+            border-top: 1px solid var(--border);
+            margin-top: 64px;
+            opacity: 0.6;
+            font-size: 0.8rem;
+        }
+        
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 32px; }
+            .hero-tagline { margin-left: auto; margin-right: auto; }
+            .hero-stats { justify-content: center; }
+            .profile-img { max-width: 280px; margin: 0 auto; display: block; }
+            .container { padding: 0 20px; }
+            .funnel-section { padding: 40px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="logo">SERAH MUINDI</div>
+    <div class="nav-links">
+        <a href="#" data-nav="home">Home</a>
+        <a href="#" data-nav="audit">Audit</a>
+        <a href="#" data-nav="toolkit">Toolkit</a>
+        <a href="https://hopewellfirm.co.uk" target="_blank" class="btn-outline-gold">Hopewell Firm</a>
+    </div>
+</nav>
+
+<main id="app-root">
+    <!-- HOME SECTION - Funnel to Audit -->
+    <div id="home-section">
+        <div class="container">
+            <div class="hero">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <h1>Founders don't have a <span>pricing problem</span>.<br>They have a self-perception problem.</h1>
+                        <p class="hero-tagline">I help ambitious founders charge their worth, scale with clarity, and stop leaving money on the table.</p>
+                        <div class="hero-stats">
+                            <div><h3>11+</h3><p>Years Practice</p></div>
+                            <div><h3>4/5</h3><p>Chevening Rate</p></div>
+                            <div><h3>3</h3><p>Organisations</p></div>
+                        </div>
+                        <button class="btn-primary" id="heroFunnelBtn">Take the Free Pricing Audit →</button>
+                    </div>
+                    <div>
+                        <img src="serah.jpg" alt="Serah Muindi" class="profile-img" onerror="this.src='https://placehold.co/400x400/1a1a1a/gold?text=Serah+Muindi'">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Direct funnel capture - leads straight to quiz -->
+            <div class="funnel-section">
+                <h2>What's Your <span>Pricing Psychology Archetype?</span></h2>
+                <p style="font-size: 1.1rem; opacity: 0.8;">7 questions · 3 minutes · Personalised analysis + 3-step action plan</p>
+                <div class="funnel-form">
+                    <input type="text" id="funnelName" placeholder="Your full name">
+                    <input type="email" id="funnelEmail" placeholder="Email address">
+                    <button class="btn-primary" id="funnelStartAudit">Start My Audit →</button>
+                </div>
+                <div class="trust-badges">
+                    <span>✓ Free · No credit card</span>
+                    <span>✓ Results emailed to you</span>
+                    <span>✓ 4,200+ founders assessed</span>
+                </div>
+            </div>
+            
+            <!-- Value proposition cards -->
+            <div class="grid-3">
+                <div class="card"><h3><span>🔍</span> Pricing Identity</h3><p>How you see yourself when it's time to quote — the psychological anchor beneath your rates.</p></div>
+                <div class="card"><h3><span>⚙️</span> Negotiation Pattern</h3><p>What you do when a client pushes back. Discount? Add scope? Or hold firm?</p></div>
+                <div class="card"><h3><span>💎</span> Belief in Worth</h3><p>Confidence in raising prices with existing clients — the root of long-term revenue.</p></div>
+            </div>
+            
+            <!-- Social Links -->
+            <div class="social-links">
+                <a href="https://www.instagram.com/serahmuindi" target="_blank" class="social-icon">📷 Instagram</a>
+                <a href="https://www.tiktok.com/@muindiserah" target="_blank" class="social-icon">🎵 TikTok</a>
+                <a href="https://www.facebook.com/share/1JPzyssL4U/" target="_blank" class="social-icon">📘 Facebook</a>
+                <a href="https://www.linkedin.com/in/serah-muindi-6ab0a757" target="_blank" class="social-icon">🔗 LinkedIn</a>
+                <a href="https://youtube.com/@serahmuindi3090" target="_blank" class="social-icon">▶️ YouTube</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- AUDIT SECTION -->
+    <div id="audit-section" style="display:none;">
+        <div class="container" style="max-width: 760px;">
+            <div class="audit-panel">
+                <div class="progress-bar"><div id="auditProgress" class="progress-fill"></div></div>
+                <div id="auditIntro">
+                    <h2 style="font-family: 'Space Grotesk'; font-size: 2rem;">Founder Pricing Audit</h2>
+                    <p style="margin: 16px 0; opacity: 0.8;">7 diagnostic questions built on validated psychological constructs. You'll receive your archetype, dimension scores, and a personalised 3-step action plan.</p>
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px;">
+                        <input type="text" id="auditName" placeholder="Your name" style="flex:1; padding:14px; border-radius:60px; background:rgba(255,255,255,0.05); border:1px solid var(--border); color:white;">
+                        <input type="email" id="auditEmail" placeholder="Email address" style="flex:1; padding:14px; border-radius:60px; background:rgba(255,255,255,0.05); border:1px solid var(--border); color:white;">
+                        <button class="btn-primary" id="beginAuditBtn">Begin audit</button>
+                    </div>
+                </div>
+                <div id="auditQuiz" style="display:none;">
+                    <div id="qCounter" style="font-family: monospace; font-size: 0.75rem; color: var(--gold); margin-bottom: 12px;"></div>
+                    <h3 id="qText" style="font-family: 'Space Grotesk'; font-size: 1.6rem; margin-bottom: 24px;"></h3>
+                    <div id="qOptionsContainer"></div>
+                    <div style="display: flex; justify-content: space-between; margin-top: 32px;">
+                        <button id="prevBtn" class="btn-secondary" style="background:transparent;">← Back</button>
+                        <button id="nextBtn" class="btn-primary" disabled>Next →</button>
+                    </div>
+                </div>
+                <div id="auditResults" style="display:none;">
+                    <h2 id="resultArchetype" style="font-family: 'Space Grotesk';"></h2>
+                    <div id="resultBadge" style="margin: 12px 0;"></div>
+                    <div id="resultAnalysis" style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: var(--radius-sm); margin: 20px 0;"></div>
+                    <div id="dimensionsContainer"></div>
+                    <div style="background: linear-gradient(135deg, var(--gold-dark), var(--gold)); color: var(--black); padding: 28px; border-radius: var(--radius-sm); margin: 24px 0;">
+                        <h4 style="color: var(--black); font-weight: 800;">⚡ Your 3 next steps</h4>
+                        <div id="nextStepsList" style="margin-top: 12px;"></div>
+                    </div>
+                    <button class="btn-secondary" id="backToHomeFromAudit" style="width:100%;">← Back to Homepage</button>
+                </div>
+                <div id="auditLoading" style="display:none; text-align:center; padding: 60px;">
+                    <div style="font-size: 2rem;">🧠</div>
+                    <p>Analysing your psychology patterns...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOOLKIT SECTION (minimal preview) -->
+    <div id="toolkit-section" style="display:none;">
+        <div class="container">
+            <div style="text-align: center; margin: 48px 0;">
+                <h2 style="font-family: 'Space Grotesk'; font-size: 2.8rem;">Founder Pricing <span style="color: var(--gold);">Toolkit</span></h2>
+                <p style="opacity: 0.7;">Self-guided framework: diagnose, articulate value, and hold your price.</p>
+                <div class="grid-3" style="margin-top: 48px;">
+                    <div class="card"><h3>🧠 Diagnostic</h3><p>5 prompts that reveal hidden beliefs</p><button class="btn-secondary toolkit-btn" data-tool="diag" style="margin-top:12px;">Explore →</button></div>
+                    <div class="card"><h3>📊 History Audit</h3><p>Calculate revenue left on the table</p><button class="btn-secondary toolkit-btn" data-tool="history">Explore →</button></div>
+                    <div class="card"><h3>🎙️ Value Script</h3><p>60-second pitch generator</p><button class="btn-secondary toolkit-btn" data-tool="script">Generate →</button></div>
+                </div>
+                <div id="toolkitDynamic" style="background: var(--gray); border-radius: var(--radius); padding: 32px; margin: 32px 0;"></div>
+                <button class="btn-secondary" id="backHomeFromToolkit">← Back to Home</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>serahmuindi.com · Business Psychologist for Founders · UK · Kenya · Global</p>
+    <p style="margin-top: 12px;">© 2026 — Built for founders who know they're worth more</p>
+</footer>
+
+<script>
+    // Navigation
+    const sections = { home: 'home-section', audit: 'audit-section', toolkit: 'toolkit-section' };
+    function showSection(sectionId) {
+        Object.keys(sections).forEach(key => {
+            const el = document.getElementById(sections[key]);
+            if (el) el.style.display = 'none';
+        });
+        document.getElementById(sectionId).style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    document.querySelectorAll('[data-nav]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = link.getAttribute('data-nav');
+            if (target === 'home') showSection('home-section');
+            if (target === 'audit') showSection('audit-section');
+            if (target === 'toolkit') showSection('toolkit-section');
+        });
+    });
+    
+    // Funnel: hero button + form both trigger audit with captured name/email
+    function triggerAuditWithDetails(name, email) {
+        if (!name || !email) { alert('Please enter your name and email to access the audit.'); return false; }
+        localStorage.setItem('auditUserName', name);
+        localStorage.setItem('auditUserEmail', email);
+        showSection('audit-section');
+        setTimeout(() => {
+            const introDiv = document.getElementById('auditIntro');
+            if (introDiv) {
+                introDiv.style.display = 'none';
+                startAuditFlow(name, email);
+            }
+        }, 100);
+        return true;
+    }
+    
+    document.getElementById('heroFunnelBtn')?.addEventListener('click', () => {
+        const name = document.getElementById('funnelName')?.value;
+        const email = document.getElementById('funnelEmail')?.value;
+        if (name && email) triggerAuditWithDetails(name, email);
+        else alert('Please fill in your name and email above to start the audit.');
+    });
+    document.getElementById('funnelStartAudit')?.addEventListener('click', () => {
+        const name = document.getElementById('funnelName')?.value;
+        const email = document.getElementById('funnelEmail')?.value;
+        triggerAuditWithDetails(name, email);
+    });
+    document.getElementById('backToHomeFromAudit')?.addEventListener('click', () => showSection('home-section'));
+    document.getElementById('backHomeFromToolkit')?.addEventListener('click', () => showSection('home-section'));
+    
+    // Audit Logic (7 questions)
+    const questions = [
+        { text: "When a client asks your price, what happens inside?", options: ["I feel anxiety and immediately calculate a lower number", "I quote but discount almost immediately", "I quote and feel nervous, but I hold", "I quote with confidence — I know my worth"], scores: [1,2,3,4], dim: "Identity" },
+        { text: "How do you typically set your prices?", options: ["Below competitors to seem accessible", "Costs + margin", "Value-based but uncomfortable", "Based on transformation I create"], scores: [1,2,3,4], dim: "Strategy" },
+        { text: "A client pushes back on your price. What do you do?", options: ["Reduce price immediately", "Add more scope at same price", "Hold but over-explain", "Restate value, let them decide"], scores: [1,2,3,4], dim: "Pattern" },
+        { text: "How clearly can you articulate why a client should pay your price?", options: ["Struggle to explain", "List qualifications/experience", "Describe process & outcomes", "Precise commercial transformation"], scores: [1,2,3,4], dim: "Communication" },
+        { text: "When you see a competitor charging significantly more, your reaction?", options: ["Irritated", "Uncertain", "Curious study", "Focused — I know my positioning"], scores: [1,2,3,4], dim: "Market" },
+        { text: "How do you feel about raising prices for existing clients?", options: ["Impossible — terrified", "Keep postponing", "Done once awkwardly", "Raise regularly with confidence"], scores: [1,2,3,4], dim: "Belief" },
+        { text: "Complete: 'The real reason I haven't charged more is…'", options: ["I don't believe my work is worth that much", "Afraid of rejection / being seen as arrogant", "Lack of strategy, not confidence", "I have charged more — now scaling systems"], scores: [1,2,3,4], dim: "Wellbeing" }
+    ];
+    let userAnswers = [], currentIdx = 0;
+    function startAuditFlow(name, email) {
+        userAnswers = []; currentIdx = 0;
+        document.getElementById('auditIntro').style.display = 'none';
+        document.getElementById('auditQuiz').style.display = 'block';
+        document.getElementById('auditResults').style.display = 'none';
+        renderQuestion();
+    }
+    function renderQuestion() {
+        const q = questions[currentIdx];
+        document.getElementById('qCounter').innerText = `Question ${currentIdx+1} of 7`;
+        document.getElementById('qText').innerText = q.text;
+        const container = document.getElementById('qOptionsContainer');
+        container.innerHTML = '';
+        q.options.forEach((opt, idx) => {
+            const div = document.createElement('div');
+            div.className = 'question-option';
+            div.innerText = `${String.fromCharCode(65+idx)}. ${opt}`;
+            div.onclick = () => {
+                document.querySelectorAll('.question-option').forEach(el => el.classList.remove('selected'));
+                div.classList.add('selected');
+                const existing = userAnswers.find(a => a.qIdx === currentIdx);
+                if(existing) { existing.optIdx = idx; existing.score = q.scores[idx]; existing.dim = q.dim; }
+                else userAnswers.push({ qIdx: currentIdx, optIdx: idx, score: q.scores[idx], dim: q.dim });
+                document.getElementById('nextBtn').disabled = false;
+            };
+            container.appendChild(div);
+        });
+        document.getElementById('nextBtn').disabled = true;
+        document.getElementById('prevBtn').style.visibility = currentIdx === 0 ? 'hidden' : 'visible';
+        let progress = (currentIdx / 7) * 100;
+        document.getElementById('auditProgress').style.width = progress + '%';
+    }
+    document.getElementById('nextBtn')?.addEventListener('click', () => {
+        if(!userAnswers.find(a=>a.qIdx===currentIdx)) return;
+        if(currentIdx < 6) { currentIdx++; renderQuestion(); }
+        else generateResults();
+    });
+    document.getElementById('prevBtn')?.addEventListener('click', () => { if(currentIdx>0) { currentIdx--; renderQuestion(); } });
+    document.getElementById('beginAuditBtn')?.addEventListener('click', () => {
+        let name = document.getElementById('auditName').value;
+        let email = document.getElementById('auditEmail').value;
+        if(name && email) { localStorage.setItem('auditUserName', name); localStorage.setItem('auditUserEmail', email); startAuditFlow(name, email); }
+        else alert('Please enter your name and email');
+    });
+    
+    function generateResults() {
+        document.getElementById('auditQuiz').style.display = 'none';
+        document.getElementById('auditLoading').style.display = 'block';
+        setTimeout(() => {
+            const total = userAnswers.reduce((s,a)=> s + a.score,0);
+            const maxScore = 28;
+            const pct = Math.round((total/maxScore)*100);
+            let archetype = pct<=35 ? "The Invisible Expert" : pct<=55 ? "The Hesitant High-Performer" : pct<=72 ? "The Underpositioned Achiever" : "The Almost-There Founder";
+            let badge = pct<=35?"Critical Gap":pct<=55?"Significant Gap":pct<=72?"Moderate Gap":"Mild Gap";
+            document.getElementById('resultArchetype').innerHTML = `${localStorage.getItem('auditUserName') || 'Founder'}, you are <span style="color:var(--gold);">${archetype}</span>`;
+            document.getElementById('resultBadge').innerHTML = `<span style="background:var(--gold); color:black; padding:4px 16px; border-radius:40px;">${badge} · ${pct}%</span>`;
+            let analysis = `Your pricing psychology score: ${pct}%. ${archetype} means the primary barrier is psychological, not market-based. Your biggest leverage is in ${userAnswers.sort((a,b)=>a.score-b.score)[0]?.dim || "Identity"} — where you're leaving disproportionate revenue.`;
+            document.getElementById('resultAnalysis').innerText = analysis;
+            const dimScores = {};
+            userAnswers.forEach(a=>{ dimScores[a.dim] = (dimScores[a.dim]||0) + a.score; });
+            let dimHtml = '<h4 style="margin:16px 0 8px;">Your 7 Dimensions (weakest first)</h4>';
+            let sortedDims = Object.entries(dimScores).sort((a,b)=> (a[1]/4) - (b[1]/4));
+            for(let [d,val] of sortedDims) { let percent = (val/4)*100; dimHtml += `<div class="dimension-bar"><span style="width:110px;">${d}</span><div class="bar-track"><div class="bar-fill" style="width:${percent}%;"></div></div><span>${Math.round(percent)}%</span></div>`; }
+            document.getElementById('dimensionsContainer').innerHTML = dimHtml;
+            document.getElementById('nextStepsList').innerHTML = `<ul style="margin-left:20px;"><li>✓ Revisit your value architecture: write the specific commercial transformation you deliver.</li><li>✓ Practice your 60-second value script with 3 peers this week.</li><li>✓ On your next enquiry, quote 20% higher and hold for 72 hours — no discounting.</li></ul>`;
+            document.getElementById('auditLoading').style.display = 'none';
+            document.getElementById('auditResults').style.display = 'block';
+            document.getElementById('auditProgress').style.width = '100%';
+            
+            // Simulate email delivery (in production: use EmailJS / ConvertKit API)
+            console.log(`Audit results for ${localStorage.getItem('auditUserName')} sent to ${localStorage.getItem('auditUserEmail')}`);
+        }, 600);
+    }
+    
+    // Toolkit simple handlers
+    function showToolkitModule(module) {
+        const dyn = document.getElementById('toolkitDynamic');
+        if(module === 'diag') dyn.innerHTML = `<h3>🧠 Pricing Diagnostic</h3><textarea id="diagReflect" rows="3" placeholder="What's the highest price you considered but never quoted? What stopped you?" style="width:100%; background:#1a1a1a; color:white; padding:12px; border-radius:12px;"></textarea><button class="btn-primary" onclick="alert('Insight saved locally')">Save Insight</button>`;
+        if(module === 'history') dyn.innerHTML = `<h3>📊 Revenue Recovery</h3><input id="gapInput" placeholder="Average gap per decision (KES/£)" style="width:100%; padding:12px; margin:8px 0;"><input id="volInput" placeholder="Decisions per year" style="width:100%; padding:12px;"><button class="btn-primary" onclick="let g=document.getElementById('gapInput').value, v=document.getElementById('volInput').value; alert('Annual left: '+(g*v))">Calculate</button>`;
+        if(module === 'script') dyn.innerHTML = `<h3>🎙️ 60-Second Script</h3><input id="whoInput" placeholder="Who you work with" style="width:100%; padding:10px;"><input id="probInput" placeholder="Problem you solve" style="width:100%; padding:10px; margin:8px 0;"><div id="previewScript" style="background:var(--gold); color:black; padding:16px; border-radius:12px; margin-top:12px;"></div><button class="btn-secondary" onclick="let t='I work with '+document.getElementById('whoInput').value+'. The problem: '+document.getElementById('probInput').value; document.getElementById('previewScript').innerText=t;">Generate</button>`;
+        dyn.scrollIntoView({ behavior: 'smooth' });
+    }
+    document.querySelectorAll('.toolkit-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => { showToolkitModule(btn.getAttribute('data-tool')); });
+    });
+    
+    // Default: prefill funnel if returning user
+    if(localStorage.getItem('auditUserName')) {
+        if(document.getElementById('funnelName')) document.getElementById('funnelName').value = localStorage.getItem('auditUserName');
+        if(document.getElementById('funnelEmail')) document.getElementById('funnelEmail').value = localStorage.getItem('auditUserEmail') || '';
+    }
+</script>
+</body>
+</html>
