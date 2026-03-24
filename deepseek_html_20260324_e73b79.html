@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Serah Muindi | Business Psychologist for Founders</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --obsidian: #000000;
+            --accent-gold: #9D883B;
+            --silver-linen: #C4A882;
+            --cream-bg: #F4EAEA;
+            --card-white: #EAEAEA;
+            --text-muted: #5a5a5a;
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        body {
+            background-color: var(--cream-bg);
+            color: var(--obsidian);
+            font-family: var(--font-sans);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        h1, h2, h3, .serif {
+            font-family: var(--font-serif);
+            font-weight: 500;
+        }
+
+        h1 {
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .eyebrow {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        .eyebrow-line {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .eyebrow-line::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--accent-gold);
+            display: inline-block;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.9rem 2rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.02em;
+            transition: all 0.25s ease;
+            text-decoration: none;
+            border-radius: 2px;
+            cursor: pointer;
+            font-family: var(--font-sans);
+        }
+
+        .btn-primary {
+            background-color: var(--obsidian);
+            color: white;
+            border: 1px solid var(--obsidian);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: var(--obsidian);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--obsidian);
+            color: var(--obsidian);
+        }
+
+        .btn-outline:hover {
+            background: var(--obsidian);
+            color: white;
+            border-color: var(--obsidian);
+        }
+
+        .btn-small {
+            padding: 0.6rem 1.5rem;
+            font-size: 0.8rem;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: var(--obsidian);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--obsidian);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin: 2rem 0 2rem;
+        }
+
+        .hero-content .tagline {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin: 1.5rem 0;
+            border-left: 2px solid var(--accent-gold);
+            padding-left: 1.2rem;
+            font-weight: 400;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 12px;
+            filter: grayscale(15%);
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+            object-fit: cover;
+            aspect-ratio: 1 / 1;
+        }
+
+        .video-wrapper {
+            margin: 1rem 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .video-wrapper iframe {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border: none;
+        }
+
+        .stats-ribbon {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+            background: var(--card-white);
+            padding: 2rem 2.5rem;
+            margin: 3rem 0;
+            border-radius: 24px;
+            text-align: center;
+        }
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--accent-gold);
+            font-family: var(--font-serif);
+        }
+
+        .therapy-strength {
+            background: linear-gradient(135deg, #f8f2ef 0%, #e8dbd4 100%);
+            padding: 2rem;
+            border-radius: 24px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .pain-section {
+            background: var(--obsidian);
+            color: white;
+            padding: 4rem 0;
+            margin: 3rem 0;
+            border-radius: 28px;
+        }
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .pain-card {
+            background: rgba(255,255,255,0.05);
+            padding: 1.5rem;
+            border-radius: 20px;
+        }
+        .pain-card h4 {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            color: var(--silver-linen);
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2rem 0 3rem;
+        }
+        .pillar {
+            background: var(--card-white);
+            padding: 2rem;
+            border-radius: 20px;
+            transition: transform 0.2s;
+        }
+        .pillar:hover {
+            transform: translateY(-5px);
+        }
+        .pillar .num {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .toolkit-section {
+            background: var(--obsidian);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 28px;
+            margin: 2rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+        .toolkit-text {
+            flex: 2;
+        }
+        .toolkit-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+        .gumroad-button {
+            background: var(--accent-gold);
+            color: var(--obsidian);
+            padding: 0.9rem 2rem;
+            border-radius: 2px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.25s;
+        }
+        .gumroad-button:hover {
+            background: #b39f4c;
+            transform: translateY(-2px);
+        }
+
+        .audit-section {
+            background: var(--obsidian);
+            color: white;
+            padding: 3rem;
+            border-radius: 28px;
+            margin: 3rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+        .audit-text {
+            flex: 2;
+        }
+        .audit-form {
+            flex: 1;
+            background: var(--cream-bg);
+            padding: 2rem;
+            border-radius: 24px;
+            color: var(--obsidian);
+        }
+        .audit-form input, .waitlist-form input {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-family: var(--font-sans);
+        }
+        .tally-embed {
+            min-height: 380px;
+            width: 100%;
+        }
+
+        .waitlist-box {
+            background: var(--card-white);
+            padding: 2rem;
+            border-radius: 24px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .waitlist-form {
+            max-width: 400px;
+            margin: 1rem auto 0;
+        }
+        .countdown {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--accent-gold);
+            margin: 1rem 0;
+        }
+
+        .speaking-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .speaking-card {
+            background: var(--card-white);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .speaking-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .testimonial-highlight {
+            background: var(--card-white);
+            padding: 2rem;
+            border-radius: 24px;
+            margin: 2rem 0;
+            font-style: italic;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .pathways {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .pathway-card {
+            background: var(--card-white);
+            border-radius: 24px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        .hopewell-highlight {
+            border: 2px solid var(--accent-gold);
+        }
+
+        .backend-guide {
+            background: var(--card-white);
+            padding: 2rem;
+            border-radius: 24px;
+            margin: 3rem 0;
+            border: 1px solid var(--silver-linen);
+        }
+        .backend-guide h3 {
+            font-family: var(--font-serif);
+            margin-bottom: 1rem;
+        }
+        .backend-guide ol {
+            margin-left: 1.5rem;
+            margin-top: 1rem;
+        }
+        .backend-guide li {
+            margin: 0.75rem 0;
+        }
+
+        footer {
+            background: var(--obsidian);
+            color: var(--silver-linen);
+            padding: 3rem 0 2rem;
+            margin-top: 4rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .social-links a {
+            color: var(--silver-linen);
+            margin-right: 1rem;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+        .social-links a:hover { color: var(--accent-gold); }
+
+        @media (max-width: 800px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .pillars-grid { grid-template-columns: 1fr; }
+            .speaking-grid { grid-template-columns: 1fr; }
+            .container { padding: 0 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="navbar">
+        <a href="/" class="logo">Serah Muindi</a>
+        <div class="nav-links">
+            <a href="#method">Approach</a>
+            <a href="#audit">Pricing Audit</a>
+            <a href="#toolkit">Toolkit</a>
+            <a href="#programmes">Programmes</a>
+            <a href="https://www.hopewellfirm.co.uk/" target="_blank">Hopewell Firm →</a>
+            <a href="https://hopewellcounseling.co.ke/" target="_blank">Corporate Wellbeing</a>
+        </div>
+    </div>
+
+    <!-- Hero section -->
+    <div class="hero-grid">
+        <div class="hero-content">
+            <div class="eyebrow eyebrow-line">BUSINESS PSYCHOLOGIST FOR FOUNDERS</div>
+            <h1>You don't have a pricing problem.<br>You have a <span style="color: var(--accent-gold);">self-perception</span> problem.</h1>
+            <p class="tagline">I help ambitious founders charge their worth, scale with clarity, and stop leaving money on the table — using 14 years of clinical psychological precision applied to commercial strategy.</p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+                <a href="#audit" class="btn btn-primary">Take the free pricing audit →</a>
+                <a href="#waitlist" class="btn btn-outline">Join Scale Ready waitlist</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="serah.jpg" alt="Serah Muindi, Business Psychologist" onerror="this.src='https://placehold.co/600x600/f4eaea/9D883B?text=Serah+Muindi'">
+        </div>
+    </div>
+
+    <!-- Video placeholder - replace with actual YouTube embed -->
+    <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_PLACEHOLDER" title="Serah Muindi on founder psychology" allowfullscreen></iframe>
+    </div>
+
+    <!-- 14 years as strength statement -->
+    <div class="therapy-strength">
+        <div class="eyebrow">THE FOUNDATION</div>
+        <h2 style="margin-bottom: 0.5rem;">14 years as a therapist isn't a detour — it's my edge.</h2>
+        <p style="font-size: 1.1rem; max-width: 90%;">I spent 14 years in clinical practice understanding how humans make decisions under pressure, where self-sabotage hides, and why brilliant people stay stuck. Today, I apply that same depth to boardrooms. The difference? Instead of healing wounds, I help founders rewire the beliefs that are costing them revenue.</p>
+        <p style="margin-top: 1rem; font-weight: 500;">Yes, I'm a trained clinical psychologist. No, I don't do therapy anymore. I architect executive cognition.</p>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-ribbon">
+        <div class="stat-item"><h3>4/5</h3><p>Chevening success rate*<br><small>high-stakes selection expertise</small></p></div>
+        <div class="stat-item"><h3>14 yrs</h3><p>Applied psychology<br><small>clinical → commercial</small></p></div>
+        <div class="stat-item"><h3>£250k+</h3><p>founders scaled<br><small>through ecosystem</small></p></div>
+        <div class="stat-item"><h3>3x</h3><p>Organisations built<br><small>founder & strategist</small></p></div>
+    </div>
+
+    <!-- Pain points -->
+    <div class="pain-section">
+        <div class="container" style="padding:0">
+            <div class="eyebrow" style="color: var(--silver-linen);">THE UNSPOKEN TRUTH</div>
+            <h2 style="color:white;">You've built something real — yet you're still undercharging, overdelivering, and feeling invisible at the top.</h2>
+            <div class="pain-grid">
+                <div class="pain-card"><h4>🕳️ The revenue leak</h4><p>You raise prices, feel guilty, and revert. That's not confidence — it's a cognitive pattern wired by years of playing small.</p></div>
+                <div class="pain-card"><h4>🎭 Market invisibility</h4><p>Technically excellent but your brand whispers. Investors, premium clients — they don't know you exist yet.</p></div>
+                <div class="pain-card"><h4>⚙️ Founder isolation</h4><p>No one understands the weight of P&L, culture, strategy. Burnout feels like failure.</p></div>
+                <div class="pain-card"><h4>💸 The pricing ceiling</h4><p>Your services transform lives, yet you earn a fraction of true value. The gap is psychological — and fixable.</p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Methodology -->
+    <div id="method">
+        <div class="eyebrow eyebrow-line">THE METHODOLOGY</div>
+        <h2>Clinical precision,<br>commercial outcomes.</h2>
+        <div class="pillars-grid">
+            <div class="pillar"><div class="num">I.</div><h3>Cognitive Architecture</h3><p>Restructuring internal decision matrices. Neutralising biases that create micro-frictions in scaling.</p></div>
+            <div class="pillar"><div class="num">II.</div><h3>Leverage & Negotiation Psychology</h3><p>Boardroom authority, non-verbal dominance — without performative aggression.</p></div>
+            <div class="pillar"><div class="num">III.</div><h3>Temporal Perception in Crisis</h3><p>Expanding analytical capacity when timelines collapse. Founder poise is trainable.</p></div>
+        </div>
+    </div>
+
+    <!-- Founder Pricing Toolkit - Gumroad integration -->
+    <div id="toolkit" class="toolkit-section">
+        <div class="toolkit-text">
+            <div class="eyebrow" style="color: var(--accent-gold);">INSTANT DOWNLOAD</div>
+            <h2 style="color:white; margin: 0.5rem 0;">Founder Pricing Toolkit</h2>
+            <p>The exact frameworks I use with private clients to identify hidden value gaps and restructure pricing psychology. Includes: value articulation worksheet, 5 pricing anchors, negotiation scripts, and the "Self-Perception Audit".</p>
+            <div class="toolkit-price">KES 5,000 / ~$39 USD</div>
+            <!-- Gumroad Embed Button -->
+            <a class="gumroad-button" href="https://serahmuindi.gumroad.com/l/founder-pricing-toolkit" target="_blank">Buy now → Instant PDF access</a>
+            <p style="font-size: 0.7rem; margin-top: 0.8rem;">✨ Secure checkout via Gumroad · Download instantly · 14-day satisfaction guarantee</p>
+        </div>
+        <div style="flex:1; text-align:center;">
+            <span style="font-size: 3rem;">📘⚡</span>
+            <p style="font-size:0.8rem;">PDF workbook + templates + audio walkthrough</p>
+        </div>
+    </div>
+
+    <!-- Audit Section - Tally.so + MailerLite integration -->
+    <div id="audit" class="audit-section">
+        <div class="audit-text">
+            <div class="eyebrow" style="color: var(--accent-gold);">FREE 7-QUESTION AUDIT</div>
+            <h2 style="color:white; margin: 0.5rem 0;">The Founder Pricing & Positioning Audit</h2>
+            <p>Discover: why you're undercharging, your hidden value gap, and the one psychological shift that unlocks premium fees. Used by 400+ founders.</p>
+            <div><span style="background: var(--accent-gold); color:#000; padding: 0.2rem 0.8rem;">⭐ 83% realise they undervalue their IP by 40%+ after this audit.</span></div>
+            <p style="margin-top: 1rem; font-size: 0.85rem;">🔗 After submission, you'll receive results via email (powered by MailerLite). Your data stays private.</p>
+        </div>
+        <div class="audit-form">
+            <h3>Start your audit →</h3>
+            <!-- Tally.so embed form - replace with your actual Tally form URL -->
+            <div class="tally-embed" data-tally-url="https://tally.so/r/w2j3aX" data-tally-layout="default" data-tally-width="100%" data-tally-hide-title="1" data-tally-emoji-text="📊" data-tally-emoji-animation="wave"></div>
+            <script async src="https://tally.so/widgets/embed.js"></script>
+            <div class="small-note" style="margin-top: 0.8rem; font-size: 0.7rem;">Your results + free toolkit preview sent to your inbox.</div>
+        </div>
+    </div>
+
+    <!-- Scale Ready Waitlist with Countdown -->
+    <div id="waitlist" class="waitlist-box">
+        <div class="eyebrow">COHORT 1 — EARLY BIRD</div>
+        <h2>Scale Ready Programme</h2>
+        <p>8-week group intensive: rewire your commercial identity, build scalable systems, price with authority. Live sessions, frameworks, peer cohort.</p>
+        <div class="countdown" id="countdownTimer">Loading early bird deadline...</div>
+        <p><strong>Early bird: KES 65,000</strong> (full price KES 97,500) — limited to 20 founders</p>
+        <div class="waitlist-form">
+            <!-- MailerLite simple form - replace with your MailerLite embed code -->
+            <form id="waitlistForm" action="https://link.mailerlite.com/subscribe" method="POST" target="_blank">
+                <input type="hidden" name="ml-submit" value="1">
+                <input type="hidden" name="groups[1]" value="1">
+                <input type="email" name="fields[email]" placeholder="Email address" required id="waitlistEmail">
+                <input type="text" name="fields[name]" placeholder="First name" required id="waitlistName">
+                <button type="submit" class="btn btn-primary" style="width:100%;">Join waitlist → secure early bird</button>
+            </form>
+            <p id="waitlistConfirm" style="color: var(--accent-gold); margin-top: 0.8rem; display: none;">✓ You're on the list! We'll email when doors open.</p>
+        </div>
+    </div>
+
+    <!-- Inner Circle & 1:1 advisory -->
+    <div id="programmes">
+        <div class="pillars-grid" style="margin-top: 1rem;">
+            <div class="pillar"><div class="num">👥</div><h3>Founders Inner Circle</h3><p>Monthly membership (KES 6,500/mo) — live case clinics, pricing deep-dives, private community of growth-stage founders.</p><a href="#" class="btn-small btn-outline" id="innerCircleBtn">Apply for access →</a></div>
+            <div class="pillar"><div class="num">⚡</div><h3>1:1 Founder Advisory</h3><p>Bespoke psychological strategy & commercial leverage. 3-month intensive. KES 390,000+. Limited to 8–10 clients.</p><a href="#" class="btn-small btn-outline" id="advisoryBtn">Book discovery call →</a></div>
+        </div>
+    </div>
+
+    <!-- Scholarship reframe piece -->
+    <div class="testimonial-highlight">
+        <div class="eyebrow">WHAT THE CHEVENING PROCESS TAUGHT ME</div>
+        <p style="font-size: 1.2rem;">“Selection panels evaluate value in under 90 seconds — not on potential, but on perceived impact. I've helped 4 out of 5 clients win Chevening by mastering that evaluation psychology. Today, I apply the exact same frameworks to help founders win premium clients and investment.”</p>
+        <p style="margin-top: 1rem;">— Serah Muindi, Chevening Scholar & Mandela Washington Fellow</p>
+    </div>
+
+    <!-- Speaking & credibility -->
+    <div class="speaking-grid">
+        <div class="speaking-card"><img src="iwd.jpg" alt="IWD speaking" onerror="this.src='https://placehold.co/600x400/EAEAEA/9D883B?text=IWD+Speaker'"><div class="caption">Keynote: International Women's Day — Psychology of Founder Pricing</div></div>
+        <div class="speaking-card"><img src="iwd-speaker.jpg" alt="Stage speaking" onerror="this.src='https://placehold.co/600x400/EAEAEA/9D883B?text=Global+Speaker'"><div class="caption">Business Psychology applied: boardroom to founder retreats.</div></div>
+    </div>
+
+    <!-- Pathways: clear Hopewell referral with threshold -->
+    <div class="pathways">
+        <div class="pathway-card hopewell-highlight">
+            <h3>🏛️ Hopewell Firm (UK)</h3>
+            <p><strong>For businesses generating above £250k revenue</strong> — you've outgrown my 1:1 advisory scope. I personally refer founders to Carson and the Hopewell commercial growth practice for STORM™ Intensive, retainer execution, and enterprise-level scaling.</p>
+            <a href="https://www.hopewellfirm.co.uk/" target="_blank" class="btn-small btn-primary">Explore Hopewell Firm →</a>
+            <p style="font-size: 0.7rem; margin-top: 0.5rem;">*Warm handoff: mention Serah for priority intake</p>
+        </div>
+        <div class="pathway-card">
+            <h3>🧠 Hopewell Counseling KE</h3>
+            <p>Corporate mental health & wellbeing services for organisations. Employee assistance, leadership resilience, trauma-informed workplace programmes.</p>
+            <a href="https://hopewellcounseling.co.ke/" target="_blank" class="btn-small btn-primary">Explore wellbeing →</a>
+        </div>
+        <div class="pathway-card">
+            <h3>🌍 Athea Global Foundation</h3>
+            <p>Impact-driven work: mental health access, women's leadership, community transformation. Partner or support our non-profit mission.</p>
+            <a href="http://atheaglobal.org/" target="_blank" class="btn-small btn-primary">Join the movement →</a>
+        </div>
+    </div>
+
+    <!-- BACKEND SETUP GUIDE - Free tools walkthrough -->
+    <div class="backend-guide" id="setup-guide">
+        <h3>⚙️ Free Backend Setup — Complete in 30 Minutes</h3>
+        <p style="margin-bottom: 1rem;">These tools are 100% free to start. Here's exactly how to connect everything:</p>
+        
+        <h4>📦 1. Gumroad (for Founder Pricing Toolkit)</h4>
+        <ol>
+            <li>Go to <a href="https://gumroad.com" target="_blank">gumroad.com</a> and sign up with your email.</li>
+            <li>Click "Add product" → "Digital product" → Name: "Founder Pricing Toolkit".</li>
+            <li>Upload your PDF workbook + templates. Set price: KES 5,000 (or $39 USD).</li>
+            <li>Under "URL slug", set: <code>founder-pricing-toolkit</code>. Your product link becomes: <code>https://serahmuindi.gumroad.com/l/founder-pricing-toolkit</code></li>
+            <li>Copy that link and replace the href in the "Buy now" button on this page.</li>
+            <li>✅ Done — Gumroad handles payment, delivery, and sends buyers their download.</li>
+        </ol>
+
+        <h4>📋 2. Tally.so (for Free Pricing Audit Form)</h4>
+        <ol>
+            <li>Go to <a href="https://tally.so" target="_blank">tally.so</a> → Sign up free (no credit card).</li>
+            <li>Create new form → Title: "Founder Pricing Audit".</li>
+            <li>Add fields: Name, Email, 7 pricing psychology questions (multiple choice or text).</li>
+            <li>Under "After submission", set redirect to: <code>https://serahmuindi.com/audit-thankyou</code> (you can create a simple thank-you page later).</li>
+            <li>Click "Publish" → copy the form URL (looks like: <code>https://tally.so/r/w2j3aX</code>).</li>
+            <li>Replace the Tally URL in the embed script above with your own URL.</li>
+            <li>✅ Form captures leads instantly — ready to connect to MailerLite.</li>
+        </ol>
+
+        <h4>📧 3. MailerLite (Email Marketing & Automation)</h4>
+        <ol>
+            <li>Go to <a href="https://www.mailerlite.com" target="_blank">mailerlite.com</a> → Free plan (up to 1,000 subscribers).</li>
+            <li>Create a group/list: "Founder Pricing Audit Leads".</li>
+            <li>Go to "Forms" → "Embedded" → create a simple form or use "API integration".</li>
+            <li><strong>To connect Tally → MailerLite automatically:</strong>
+                <ul style="margin-top: 0.5rem;">
+                    <li>In Tally, go to "Connect" → "Integrations" → search MailerLite.</li>
+                    <li>Follow the OAuth to link your MailerLite account.</li>
+                    <li>Map Tally fields (Name, Email) to MailerLite subscriber fields.</li>
+                    <li>Every audit submission = automatically added to your email list.</li>
+                </ul>
+            </li>
+            <li>Create a 5-email welcome sequence: Deliver audit results + toolkit preview + value emails.</li>
+            <li>✅ Your lead capture + email automation is live, 100% free.</li>
+        </ol>
+
+        <h4>📝 4. Waitlist Form (Scale Ready Programme)</h4>
+        <ol>
+            <li>In MailerLite, create a new group: "Scale Ready Waitlist".</li>
+            <li>Create an embedded form → copy the HTML embed code.</li>
+            <li>Replace the current waitlist form with your MailerLite embed code (or keep the current and update action URL).</li>
+            <li>✅ Waitlist leads go directly to MailerLite for nurturing.</li>
+        </ol>
+
+        <div style="background: #e8e0d5; padding: 1rem; border-radius: 12px; margin-top: 1.5rem;">
+            <p><strong>🎯 Quick Start Checklist:</strong></p>
+            <ul style="margin-left: 1.5rem;">
+                <li>✅ Gumroad product published → update button link</li>
+                <li>✅ Tally form published → update embed URL</li>
+                <li>✅ Tally connected to MailerLite via integration</li>
+                <li>✅ MailerLite welcome sequence created (5 emails)</li>
+                <li>✅ Waitlist form connected to MailerLite</li>
+                <li>✅ YouTube video embed replaced with actual video ID</li>
+            </ul>
+            <p style="margin-top: 0.8rem;"><strong>Total cost: $0 / month</strong> (Gumroad takes 10% per sale, MailerLite free up to 1000 subs, Tally free unlimited forms).</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div><h3 style="color: white; font-family: var(--font-serif);">Serah Muindi</h3><p>Business Psychologist for Founders<br>UK · Kenya · Global</p></div>
+            <div><h4>Navigate</h4><p><a href="#audit" style="color: var(--silver-linen); text-decoration: none;">Pricing Audit</a><br><a href="#toolkit" style="color: var(--silver-linen); text-decoration: none;">Founder Toolkit</a><br><a href="#waitlist" style="color: var(--silver-linen); text-decoration: none;">Scale Ready</a><br><a href="#setup-guide" style="color: var(--silver-linen); text-decoration: none;">Setup Guide</a></p></div>
+            <div class="social-links"><h4>Connect</h4>
+                <a href="https://www.instagram.com/serahmuindi" target="_blank">Instagram</a><br>
+                <a href="https://www.tiktok.com/@muindiserah" target="_blank">TikTok</a><br>
+                <a href="https://www.facebook.com/share/1JPzyssL4U/" target="_blank">Facebook</a><br>
+                <a href="https://www.linkedin.com/in/serah-muindi-6ab0a757" target="_blank">LinkedIn</a><br>
+                <a href="https://youtube.com/@serahmuindi3090" target="_blank">YouTube</a>
+            </div>
+        </div>
+        <div style="border-top: 1px solid #2a2a2a; margin-top: 2rem; padding-top: 1.5rem; text-align: center; font-size: 0.75rem;">© 2026 Serah Muindi — 14 years clinical precision, now calibrated for commercial execution.</div>
+    </div>
+</footer>
+
+<script>
+    // Countdown timer: 14 days from now for early bird
+    function setEarlyBirdDeadline() {
+        const deadline = new Date();
+        deadline.setDate(deadline.getDate() + 14);
+        deadline.setHours(23, 59, 59);
+        function updateCountdown() {
+            const now = new Date();
+            const diff = deadline - now;
+            if(diff <= 0) {
+                document.getElementById('countdownTimer').innerHTML = "🎯 Early bird ends soon — join now!";
+                return;
+            }
+            const days = Math.floor(diff / (1000*60*60*24));
+            const hours = Math.floor((diff % (86400000))/3600000);
+            const mins = Math.floor((diff % 3600000)/60000);
+            document.getElementById('countdownTimer').innerHTML = `⏳ Early bird closes in: ${days}d ${hours}h ${mins}m`;
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 60000);
+    }
+    setEarlyBirdDeadline();
+
+    // Simple button handlers
+    document.getElementById('innerCircleBtn')?.addEventListener('click', (e) => {
+        e.preventDefault(); 
+        alert("Apply for Founders Inner Circle: monthly KES 6,500. Join waitlist for next intake →");
+    });
+    document.getElementById('advisoryBtn')?.addEventListener('click', (e) => {
+        e.preventDefault(); 
+        alert("Book a 30-min discovery call for 1:1 Founder Advisory (KES 390k+). Limited spots.");
+    });
+</script>
+</body>
+</html>
