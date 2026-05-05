@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Serah Muindi | Certified Business Psychologist for Founders & Professionals</title>
+    
+    <!-- EmailJS for reliable email delivery -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --obsidian: #0A0A0A;
+            --accent-gold: #9D883B;
+            --silver-linen: #C4A882;
+            --cream-bg: #F9F5F2;
+            --card-white: #FFFFFF;
+            --text-muted: #6B6B6B;
+            --text-soft: #4A4A4A;
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        body {
+            background-color: var(--cream-bg);
+            color: var(--obsidian);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-weight: 300;
+        }
+
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+
+        h1, h2, h3, .serif { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.02em; }
+        h1 { font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1; letter-spacing: -0.03em; }
+        h2 { font-size: clamp(2.2rem, 4vw, 3rem); margin-bottom: 1.5rem; }
+        h3 { font-size: 1.4rem; margin-bottom: 0.8rem; }
+
+        .eyebrow {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--accent-gold);
+            margin-bottom: 1.25rem;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        .eyebrow-line { display: flex; align-items: center; gap: 12px; }
+        .eyebrow-line::before { content: ''; width: 48px; height: 1px; background: var(--accent-gold); display: inline-block; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.9rem 2.2rem;
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border-radius: 2px;
+            cursor: pointer;
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            border: 1px solid transparent;
+        }
+        .btn-primary { background-color: var(--obsidian); color: white; border-color: var(--obsidian); }
+        .btn-primary:hover { background-color: var(--accent-gold); border-color: var(--accent-gold); color: var(--obsidian); }
+        .btn-outline { background: transparent; border-color: var(--obsidian); color: var(--obsidian); }
+        .btn-outline:hover { background: var(--obsidian); color: white; }
+        .btn-gold { background: var(--accent-gold); color: var(--obsidian); border-color: var(--accent-gold); font-weight: 600; }
+        .btn-gold:hover { background: var(--obsidian); color: var(--accent-gold); }
+        .btn-small { padding: 0.5rem 1.2rem; font-size: 0.7rem; }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 0 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .logo { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 500; color: var(--obsidian); text-decoration: none; }
+        .logo span { color: var(--accent-gold); }
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; color: var(--text-soft); font-size: 0.8rem; letter-spacing: 0.03em; text-transform: uppercase; font-weight: 400; }
+        .nav-links a:hover { color: var(--accent-gold); }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin: 4rem 0;
+        }
+        .hero-content .tagline {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin: 1.8rem 0;
+            border-left: 2px solid var(--accent-gold);
+            padding-left: 1.5rem;
+            line-height: 1.6;
+        }
+        .hero-image img {
+            width: 100%;
+            border-radius: 4px;
+            filter: grayscale(20%);
+            box-shadow: 0 30px 40px -20px rgba(0,0,0,0.2);
+            object-fit: cover;
+            aspect-ratio: 1 / 1;
+        }
+
+        .credentials-bar {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            padding: 2rem 0;
+            margin: 2rem 0;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .credential-item {
+            text-align: center;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+        }
+        .credential-item strong {
+            display: block;
+            color: var(--accent-gold);
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+            letter-spacing: 0.02em;
+        }
+
+        .stats-ribbon {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+            background: var(--card-white);
+            padding: 2.5rem 3rem;
+            margin: 4rem 0;
+            border-radius: 2px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.02);
+        }
+        .stat-item h3 { font-size: 2.2rem; color: var(--accent-gold); font-family: var(--font-serif); margin-bottom: 0.25rem; }
+        .stat-item p { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); }
+
+        .therapy-strength, .testimonial-highlight, .waitlist-box {
+            background: var(--card-white);
+            padding: 2.5rem;
+            border-radius: 2px;
+            margin: 3rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+
+        .pain-section {
+            background: var(--obsidian);
+            color: white;
+            padding: 5rem 0;
+            margin: 4rem 0;
+            border-radius: 2px;
+        }
+        .pain-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem; }
+        .pain-card { background: rgba(255,255,255,0.03); padding: 1.8rem; border-radius: 2px; border-left: 2px solid var(--accent-gold); }
+        .pain-card h4 { font-family: var(--font-serif); font-size: 1.2rem; margin-bottom: 0.75rem; color: var(--silver-linen); }
+        .pain-card p { font-size: 0.85rem; line-height: 1.6; color: rgba(255,255,255,0.75); }
+
+        .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin: 2.5rem 0 4rem; }
+        .pillar { background: var(--card-white); padding: 2.2rem; border-radius: 2px; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
+        .pillar .num { font-family: var(--font-serif); font-size: 2rem; color: var(--accent-gold); margin-bottom: 1.2rem; font-style: italic; }
+        .pillar h3 { font-size: 1.3rem; margin-bottom: 0.8rem; }
+        .pillar p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .product-card {
+            background: var(--card-white);
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+        }
+        .product-card.highlight {
+            border: 2px solid var(--accent-gold);
+            position: relative;
+        }
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent-gold);
+            color: var(--obsidian);
+            padding: 0.3rem 0.8rem;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+        }
+        .product-content {
+            padding: 2rem;
+        }
+        .product-content h3 {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+        .product-content p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.2rem;
+        }
+        .product-price {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+        .product-meta {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-soft);
+        }
+
+        .toolkit-section, .audit-section {
+            background: var(--obsidian);
+            color: white;
+            padding: 3rem;
+            border-radius: 2px;
+            margin: 3rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: 2rem;
+        }
+        .toolkit-text, .audit-text { flex: 1.4; min-width: 260px; }
+        .toolkit-price { font-size: 1.8rem; font-weight: 500; color: var(--accent-gold); font-family: var(--font-serif); margin: 1rem 0; }
+        
+        .selar-button {
+            background: var(--accent-gold);
+            color: var(--obsidian);
+            padding: 0.9rem 2rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.8rem;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .selar-button:hover {
+            background: var(--obsidian);
+            color: var(--accent-gold);
+            outline: 1px solid var(--accent-gold);
+        }
+
+        .audit-app {
+            flex: 1;
+            min-width: 300px;
+            background: #111;
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 1.6rem;
+            border-radius: 2px;
+        }
+        .audit-step { display: none; }
+        .audit-step.active { display: block; }
+        .progress { height: 4px; background: rgba(255,255,255,0.15); margin-bottom: 1rem; border-radius: 2px; }
+        .progress-bar { height: 100%; background: var(--accent-gold); width: 0%; transition: width 0.25s ease; border-radius: 2px; }
+        .quiz-option {
+            width: 100%;
+            text-align: left;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.85rem;
+            margin-bottom: 0.6rem;
+            cursor: pointer;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            border-radius: 2px;
+            transition: all 0.2s ease;
+        }
+        .quiz-option:hover {
+            border-color: var(--accent-gold);
+            background: rgba(157,136,59,0.1);
+        }
+        .quiz-option.selected { border-color: var(--accent-gold); background: rgba(157,136,59,0.2); }
+        .audit-input {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 0.7rem;
+            border: 1px solid #ccc;
+            background: #fff;
+            color: var(--obsidian);
+            font-family: var(--font-sans);
+            border-radius: 2px;
+        }
+        .result-card { background: var(--card-white); color: var(--obsidian); padding: 1.5rem; border-left: 3px solid var(--accent-gold); border-radius: 2px; }
+        .result-score { font-family: var(--font-serif); font-size: 2rem; color: var(--accent-gold); }
+
+        .waitlist-form { max-width: 420px; margin: 1.5rem auto 0; }
+        .waitlist-form input { width: 100%; padding: 0.9rem; margin: 0.5rem 0; border: 1px solid #ddd; font-family: var(--font-sans); border-radius: 2px; }
+        .countdown { font-family: var(--font-serif); font-size: 1.6rem; color: var(--accent-gold); margin: 1rem 0; }
+
+        .speaking-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin: 3rem 0; }
+        .speaking-card { background: var(--card-white); border-radius: 2px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.03); }
+        .speaking-card img { width: 100%; height: 260px; object-fit: cover; }
+        .speaking-card .caption { padding: 1.2rem; font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-muted); }
+
+        .application-box {
+            background: linear-gradient(135deg, var(--obsidian) 0%, #1a1a1a 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 2px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        .application-box h2 { color: var(--accent-gold); }
+
+        footer { background: var(--obsidian); color: var(--silver-linen); padding: 3rem 0 2rem; margin-top: 5rem; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+        .social-links a { color: var(--silver-linen); margin-right: 1rem; text-decoration: none; display: inline-block; margin-bottom: 0.5rem; font-size: 0.8rem; }
+        .social-links a:hover { color: var(--accent-gold); }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: var(--accent-gold);
+            animation: spin 0.8s linear infinite;
+            margin-right: 0.5rem;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .trust-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.6);
+            margin-top: 0.8rem;
+        }
+        .trust-indicator::before {
+            content: '🔒';
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 1024px) {
+            .pain-grid { grid-template-columns: repeat(2, 1fr); }
+            .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-grid { gap: 2rem; }
+        }
+        @media (max-width: 800px) {
+            .hero-grid, .pillars-grid, .speaking-grid, .pain-grid { grid-template-columns: 1fr; }
+            .container { padding: 0 1.3rem; }
+            .navbar { flex-direction: column; align-items: flex-start; }
+            .nav-links { gap: 1rem; }
+            .credentials-bar { gap: 1.5rem; }
+            .products-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Navigation -->
+    <div class="navbar">
+        <a href="/" class="logo">Serah <span>Muindi</span></a>
+        <div class="nav-links">
+            <a href="#method">Approach</a>
+            <a href="#audit">Pricing Audit</a>
+            <a href="#products">Products</a>
+            <a href="#mentorship">Mentorship</a>
+            <a href="#resources">Resources</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero-grid">
+        <div class="hero-content">
+            <div class="eyebrow eyebrow-line">CERTIFIED BUSINESS PSYCHOLOGIST · LICENSED COUNSELING PSYCHOLOGIST</div>
+            <h1>You don't have a pricing problem.<br>You have a <span style="color: var(--accent-gold);">self-perception</span> problem.</h1>
+            <p class="tagline">With dual certification in business psychology and clinical counseling, I bring 14 years of psychological precision to commercial strategy — helping ambitious founders, therapists, and professionals charge their worth and scale with clarity.</p>
+            <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem;">
+                <a href="#audit" class="btn btn-primary">Free pricing audit →</a>
+                <a href="#products" class="btn btn-outline">Explore products</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="serah.jpg" alt="Serah Muindi, Certified Business Psychologist" onerror="this.src='https://placehold.co/600x600/f4eaea/9D883B?text=Serah+Muindi'">
+        </div>
+    </div>
+
+    <!-- Professional Credentials -->
+    <div class="credentials-bar">
+        <div class="credential-item">
+            <strong>Certified</strong>
+            Business Psychologist<br>
+            <small>Association for Business Psychology</small>
+        </div>
+        <div class="credential-item">
+            <strong>Licensed</strong>
+            Counseling Psychologist<br>
+            <small>Counselors & Psychologists Board</small>
+        </div>
+        <div class="credential-item">
+            <strong>14 Years</strong>
+            Applied Psychology<br>
+            <small>Clinical & Commercial Practice</small>
+        </div>
+    </div>
+
+    <!-- Stats Ribbon -->
+    <div class="stats-ribbon">
+        <div class="stat-item"><h3>4/5</h3><p>Chevening success rate</p></div>
+        <div class="stat-item"><h3>14 yrs</h3><p>Applied psychology</p></div>
+        <div class="stat-item"><h3>£250k+</h3><p>Founders scaled</p></div>
+        <div class="stat-item"><h3>3x</h3><p>Organisations built</p></div>
+    </div>
+
+    <!-- Pain Points Section -->
+    <div class="pain-section">
+        <div class="container" style="padding:0">
+            <div class="eyebrow" style="color: var(--silver-linen);">THE UNSPOKEN TRUTH</div>
+            <h2 style="color:white; max-width:80%;">You've built something real — yet you're still undercharging, overdelivering, and feeling invisible at the top.</h2>
+            <div class="pain-grid">
+                <div class="pain-card"><h4>Revenue Leak</h4><p>You raise prices, feel guilt, and revert. That's a cognitive pattern wired by years of playing small — not a market reality.</p></div>
+                <div class="pain-card"><h4>Market Invisibility</h4><p>Technically excellent but your brand whispers. Premium clients don't know you exist because your positioning doesn't match your expertise.</p></div>
+                <div class="pain-card"><h4>Founder Isolation</h4><p>No one understands the weight of P&L, culture, and strategy simultaneously. Burnout masquerades as failure.</p></div>
+                <div class="pain-card"><h4>Pricing Ceiling</h4><p>Your services transform lives, yet you earn a fraction of true value. The gap between your clinical training and commercial confidence is psychological.</p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Methodology Section -->
+    <div id="method">
+        <div class="eyebrow eyebrow-line">METHODOLOGY</div>
+        <h2>Clinical precision,<br>commercial outcomes.</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2rem; max-width: 700px;">Drawing from dual certification in business psychology and clinical counseling, my approach bridges the gap between psychological insight and business strategy — something conventional coaching cannot replicate.</p>
+        <div class="pillars-grid">
+            <div class="pillar">
+                <div class="num">I</div>
+                <h3>Cognitive Architecture</h3>
+                <p>Restructuring internal decision matrices and neutralising biases that create scaling friction. This is applied clinical psychology — not motivational speaking.</p>
+            </div>
+            <div class="pillar">
+                <div class="num">II</div>
+                <h3>Commercial Leverage</h3>
+                <p>Boardroom authority, negotiation psychology, and pricing confidence — built from understanding both human behaviour and market dynamics.</p>
+            </div>
+            <div class="pillar">
+                <div class="num">III</div>
+                <h3>Identity Integration</h3>
+                <p>Reconciling your clinical training with commercial ambition. You can hold deep therapeutic presence AND charge premium rates. These are not opposites.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <div id="products">
+        <div class="eyebrow eyebrow-line">PRODUCTS & RESOURCES</div>
+        <h2>Tools built from 14 years<br>of psychological practice.</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2rem;">Each product distills clinical insight into commercial application — whether you're scaling a business, building a therapy practice, or pursuing global scholarships.</p>
+        
+        <div class="products-grid">
+            <!-- Founder Pricing Toolkit -->
+            <div class="product-card highlight">
+                <div class="product-badge">BESTSELLER</div>
+                <div class="product-content">
+                    <div class="product-meta">INSTANT ACCESS · DIGITAL DOWNLOAD</div>
+                    <h3>Founder Pricing Toolkit</h3>
+                    <p>The exact frameworks used with private clients: value articulation worksheets, pricing anchors, negotiation scripts, and the Self-Perception Audit debrief framework.</p>
+                    <div class="product-price">£79</div>
+                    <a href="https://serahmuindi.selar.com/9m75i41u05" class="btn btn-gold" style="width:100%;" target="_blank" rel="noopener">Get the toolkit →</a>
+                </div>
+            </div>
+
+            <!-- Strategy Consultation -->
+            <div class="product-card">
+                <div class="product-content">
+                    <div class="product-meta">1:1 SESSION · 60 MINUTES</div>
+                    <h3>Business Growth Consultation</h3>
+                    <p>A focused session applying business psychology to your specific commercial challenge — pricing, positioning, or scaling strategy. Includes preliminary assessment.</p>
+                    <div class="product-price">KES 7,500</div>
+                    <a href="https://serahmuindi.selar.com/z1777966ci" class="btn btn-outline" style="width:100%;" target="_blank" rel="noopener">Book consultation →</a>
+                </div>
+            </div>
+
+            <!-- Therapist Guide -->
+            <div class="product-card">
+                <div class="product-content">
+                    <div class="product-meta">DIGITAL GUIDE · INSTANT ACCESS</div>
+                    <h3>Therapist Client-Building Guide</h3>
+                    <p>A systematic framework for licensed therapists to ethically attract and retain 10–25 consistent therapy clients. Built from real practice development experience.</p>
+                    <div class="product-price">KES 3,500</div>
+                    <a href="https://serahmuindi.selar.com/azjdx44799" class="btn btn-outline" style="width:100%;" target="_blank" rel="noopener">Get the guide →</a>
+                </div>
+            </div>
+
+            <!-- Chevening Guidance -->
+            <div class="product-card">
+                <div class="product-content">
+                    <div class="product-meta">APPLICATION SUPPORT</div>
+                    <h3>Chevening Scholarship Guidance</h3>
+                    <p>A comprehensive resource for professionals preparing Chevening applications — drawing from a 4/5 success rate with previous candidates. Includes essay frameworks and interview preparation.</p>
+                    <div class="product-price">KES 5,000</div>
+                    <a href="https://serahmuindi.selar.com/61eg18x127" class="btn btn-outline" style="width:100%;" target="_blank" rel="noopener">Access guidance →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing Audit Section -->
+    <div id="audit" class="audit-section">
+        <div class="audit-text">
+            <div class="eyebrow" style="color: var(--accent-gold);">FREE 7-QUESTION AUDIT</div>
+            <h2 style="color:white; margin:0.5rem 0;">Founder Pricing & Positioning Audit</h2>
+            <p>Answer 7 questions grounded in business psychology, receive an instant breakdown on-page, and get your detailed results + toolkit preview delivered to your inbox.</p>
+            <p style="margin-top:0.8rem;"><span style="background: var(--accent-gold); color:#0A0A0A; padding:0.2rem 0.8rem; font-size:0.7rem; font-weight:500;">83% of founders discover they undervalue their intellectual property by 40%+</span></p>
+            <div class="trust-indicator">Your email is secure. No spam — audit insights and toolkit preview only.</div>
+        </div>
+
+        <div class="audit-app">
+            <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+
+            <!-- Quiz Step -->
+            <div id="quizStep" class="audit-step active">
+                <p style="font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--silver-linen); margin-bottom:0.6rem;">Question <span id="questionIndex">1</span>/7</p>
+                <h3 id="questionText" style="margin-bottom:0.8rem; font-size:1.1rem;"></h3>
+                <div id="questionOptions"></div>
+                <button class="btn btn-primary" id="nextQuestionBtn" style="margin-top:0.8rem; width:100%;">Continue →</button>
+            </div>
+
+            <!-- Email Step -->
+            <div id="emailStep" class="audit-step">
+                <h3 style="margin-bottom:0.6rem;">Your results are ready.</h3>
+                <p style="font-size:0.85rem; color:rgba(255,255,255,0.75); margin-bottom:1rem;">Enter your details below and we'll send your complete audit breakdown + toolkit preview to your inbox immediately.</p>
+                <input id="auditName" class="audit-input" placeholder="First name" required>
+                <input id="auditEmail" class="audit-input" type="email" placeholder="Email address" required>
+                <button class="btn btn-primary" id="getResultsBtn" style="width:100%;">
+                    <span id="btnText">Send my results →</span>
+                </button>
+                <p style="font-size:0.68rem; margin-top:0.8rem; color:rgba(255,255,255,0.65);">We respect your inbox. Audit results + toolkit preview only.</p>
+            </div>
+
+            <!-- Results Step -->
+            <div id="resultStep" class="audit-step">
+                <div class="result-card">
+                    <p style="font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--accent-gold);">Your pricing profile</p>
+                    <h3 id="resultTitle" style="margin:0.4rem 0; font-family: var(--font-serif);"></h3>
+                    <p class="result-score" id="resultScore">0/35</p>
+                    <p id="resultSummary" style="margin-top:0.6rem; color: var(--text-soft);"></p>
+                    <div id="deliveryMessage" style="margin-top:1rem; padding-top:1rem; border-top: 1px solid #eee; font-size:0.8rem; color:var(--text-muted);"></div>
+                </div>
+                <div style="display:flex; gap:0.8rem; margin-top:1rem; flex-wrap:wrap;">
+                    <a href="https://serahmuindi.selar.com/9m75i41u05" class="btn btn-outline" style="flex:1;" target="_blank" rel="noopener">Get toolkit →</a>
+                    <a href="https://serahmuindi.selar.com/z1777966ci" class="btn btn-outline" style="flex:1;" target="_blank" rel="noopener">Book consultation →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mentorship Application Section -->
+    <div id="mentorship" class="application-box">
+        <div class="eyebrow" style="color: var(--silver-linen);">LIMITED AVAILABILITY</div>
+        <h2>Full Mentorship Programme</h2>
+        <p style="max-width:600px; margin:1rem auto 2rem; color: rgba(255,255,255,0.8);">A comprehensive 10-session programme integrating business psychology and clinical insight — for founders, therapists, and professionals ready to scale their practice or business with psychological precision.</p>
+        <div class="toolkit-price" style="font-size:2rem;">KES 75,000</div>
+        <p style="color: var(--silver-linen); margin-bottom: 1.5rem; font-size: 0.9rem;">10 sessions · Assessment included · Application required</p>
+        <a href="https://serahmuindi.selar.com/z1777966ci" class="btn btn-gold btn-large" target="_blank" rel="noopener">Apply for mentorship →</a>
+        <p style="font-size:0.7rem; color: rgba(255,255,255,0.5); margin-top:1rem;">Applications reviewed personally. Not all applicants will be accepted.</p>
+    </div>
+
+    <!-- Waitlist Section -->
+    <div id="waitlist" class="waitlist-box">
+        <div class="eyebrow">COHORT 1 — EARLY BIRD</div>
+        <h2>Scale Ready Programme</h2>
+        <p>8-week group intensive: rewire your commercial identity, build scalable systems, price with authority. Live sessions, peer cohort, direct access to business psychology frameworks.</p>
+        <div class="countdown" id="countdownTimer">Loading early bird deadline...</div>
+        <p><strong>Early bird: £395</strong> (full price £595) · limited to 20 founders</p>
+        <div class="waitlist-form">
+            <form id="waitlistForm">
+                <input type="email" id="waitlistEmail" name="email" placeholder="Email address" required>
+                <input type="text" id="waitlistName" name="name" placeholder="First name" required>
+                <button type="submit" class="btn btn-primary" id="waitlistSubmitBtn" style="width:100%;">Join waitlist →</button>
+            </form>
+            <p id="waitlistMessage" style="margin-top:0.8rem; font-size:0.8rem; display:none;"></p>
+        </div>
+    </div>
+
+    <!-- Speaking & Media -->
+    <div class="speaking-grid">
+        <div class="speaking-card">
+            <img src="iwd.jpg" alt="International Women's Day Speaker" onerror="this.src='https://placehold.co/600x400/EAEAEA/9D883B?text=IWD+Speaker'">
+            <div class="caption">International Women's Day · Founder Pricing Psychology</div>
+        </div>
+        <div class="speaking-card">
+            <img src="iwd-speaker.jpg" alt="Business Psychology Stage" onerror="this.src='https://placehold.co/600x400/EAEAEA/9D883B?text=Global+Speaker'">
+            <div class="caption">Business Psychology · Boardroom to Founder Retreats</div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <h3 style="color: white; font-family: var(--font-serif); font-weight: 400;">Serah Muindi</h3>
+                <p style="font-size: 0.8rem;">
+                    Certified Business Psychologist<br>
+                    Licensed Counseling Psychologist<br>
+                    UK · Kenya · Global
+                </p>
+            </div>
+            <div>
+                <h4 style="font-weight: 400; font-size: 0.8rem; color: white;">Products & Services</h4>
+                <p>
+                    <a href="https://serahmuindi.selar.com/9m75i41u05" style="color: var(--silver-linen); text-decoration: none; font-size: 0.75rem;">Founder Pricing Toolkit</a><br>
+                    <a href="https://serahmuindi.selar.com/z1777966ci" style="color: var(--silver-linen); text-decoration: none; font-size: 0.75rem;">Business Consultation</a><br>
+                    <a href="https://serahmuindi.selar.com/azjdx44799" style="color: var(--silver-linen); text-decoration: none; font-size: 0.75rem;">Therapist Guide</a><br>
+                    <a href="https://serahmuindi.selar.com/61eg18x127" style="color: var(--silver-linen); text-decoration: none; font-size: 0.75rem;">Chevening Guidance</a>
+                </p>
+            </div>
+            <div>
+                <h4 style="font-weight: 400; font-size: 0.8rem; color: white;">Navigate</h4>
+                <p>
+                    <a href="#audit" style="color: var(--silver-linen); text-decoration: none; font-size: 0.75rem;">Free Pricing Audit</a><br>
+                    <a href="#products" style="color: var(--silver-linen); text-decoration: none; font-size: 0.75rem;">All Products</a><br>
+                    <a href="#mentorship" style="color: var(--silver-linen); text-decoration: none; font-size: 0.75rem;">Mentorship</a><br>
+                    <a href="#waitlist" style="color: var(--silver-linen); text-decoration: none; font-size: 0.75rem;">Scale Ready</a>
+                </p>
+            </div>
+            <div class="social-links">
+                <h4 style="font-weight: 400; font-size: 0.8rem; color: white;">Connect</h4>
+                <a href="https://www.instagram.com/serahmuindi" target="_blank" rel="noopener">Instagram</a><br>
+                <a href="https://www.tiktok.com/@muindiserah" target="_blank" rel="noopener">TikTok</a><br>
+                <a href="https://www.linkedin.com/in/serah-muindi-6ab0a757" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+        </div>
+        <div style="border-top: 1px solid #2a2a2a; margin-top: 2rem; padding-top: 1.5rem; text-align: center; font-size: 0.7rem;">
+            © 2026 Serah Muindi — Certified Business Psychologist & Licensed Counseling Psychologist<br>
+            Clinical precision calibrated for commercial execution.
+        </div>
+    </div>
+</footer>
+
+<script>
+    // ============================================
+    // INITIALIZE EMAILJS (Reliable Email Delivery)
+    // ============================================
+    (function() {
+        emailjs.init("YOUR_EMAILJS_PUBLIC_KEY"); // Replace with your EmailJS public key
+    })();
+
+    // ============================================
+    // CONFIGURATION
+    // ============================================
+    const CONFIG = {
+        // Google Sheets Integration
+        googleScriptURL: 'https://script.google.com/macros/s/AKfycbzfgMCh7HPMqZ91mBAYywTby4MHHOt5ITJ6Z9ZWJVKudd3ZCP4E-KI9VEyKKQw3qjBfsw/exec',
+        
+        // EmailJS Configuration (backup delivery system)
+        emailjsServiceID: 'YOUR_EMAILJS_SERVICE_ID',
+        emailjsTemplateID: 'YOUR_EMAILJS_TEMPLATE_ID',
+        
+        // Product URLs
+        founderToolkit: 'https://serahmuindi.selar.com/9m75i41u05',
+        businessConsultation: 'https://serahmuindi.selar.com/z1777966ci',
+        therapistGuide: 'https://serahmuindi.selar.com/azjdx44799',
+        cheveningGuidance: 'https://serahmuindi.selar.com/61eg18x127',
+        
+        // Sender.net email sequencing (for follow-up sequences)
+        senderAPIKey: 'YOUR_SENDER_API_KEY', // For automated sequences via Sender
+        
+        // Systeme.io webhook (for funnel automation)
+        systemeioWebhook: 'YOUR_SYSTEMEIO_WEBHOOK_URL', // For automation workflows
+    };
+
+    // ============================================
+    // AUDIT QUESTIONS
+    // ============================================
+    const questions = [
+        { 
+            text: "When a prospect says 'that's outside our budget,' what's your immediate internal reaction?", 
+            options: [
+                {text: "I hold the line calmly — my value is clear", score: 5},
+                {text: "I feel slight discomfort but stay firm", score: 4},
+                {text: "I start mentally calculating a discount", score: 2},
+                {text: "I apologise and feel embarrassed about the price", score: 1}
+            ] 
+        },
+        { 
+            text: "How do you usually determine pricing for a new offer?", 
+            options: [
+                {text: "Based on transformation value delivered", score: 5},
+                {text: "Outcomes + market positioning combined", score: 4},
+                {text: "Primarily by competitor comparison", score: 2},
+                {text: "By calculating hours × hourly rate", score: 1}
+            ] 
+        },
+        { 
+            text: "How often do you overdeliver without adjusting fees accordingly?", 
+            options: [
+                {text: "Rarely — I scope clearly from the start", score: 5},
+                {text: "Sometimes — when the relationship matters", score: 3},
+                {text: "Often — it feels unprofessional to charge more", score: 2},
+                {text: "Almost always — I struggle to set boundaries", score: 1}
+            ] 
+        },
+        { 
+            text: "When you imagine doubling your current rates, what thought appears first?", 
+            options: [
+                {text: "Achievable with the right positioning and clientele", score: 5},
+                {text: "Possible if I strengthen my authority presence", score: 3},
+                {text: "No one would pay that — the market won't bear it", score: 2},
+                {text: "I'd feel like an imposter charging that much", score: 1}
+            ] 
+        },
+        { 
+            text: "How do you respond to pricing pushback after sending a proposal?", 
+            options: [
+                {text: "Reinforce value and hold the price", score: 5},
+                {text: "Adjust scope while maintaining value integrity", score: 4},
+                {text: "Offer a modest discount to close", score: 2},
+                {text: "Reduce price immediately to avoid losing the client", score: 1}
+            ] 
+        },
+        { 
+            text: "How do you describe your expertise to premium prospects?", 
+            options: [
+                {text: "By transformational outcomes and measurable impact", score: 5},
+                {text: "Through case studies and client transformations", score: 4},
+                {text: "Primarily by qualifications and credentials", score: 2},
+                {text: "By listing deliverables and processes", score: 1}
+            ] 
+        },
+        { 
+            text: "When you close a client at your current rate, what do you predominantly feel?", 
+            options: [
+                {text: "Confident and fairly compensated", score: 5},
+                {text: "Satisfied but wondering if I could charge more", score: 3},
+                {text: "Relieved they said yes", score: 2},
+                {text: "Like I somehow got away with it", score: 1}
+            ] 
+        }
+    ];
+
+    let idx = 0;
+    const answers = new Array(questions.length).fill(null);
+
+    // ============================================
+    // RENDER FUNCTIONS
+    // ============================================
+    function renderQuestion() {
+        const q = questions[idx];
+        document.getElementById('questionIndex').textContent = idx + 1;
+        document.getElementById('questionText').textContent = q.text;
+        document.getElementById('progressBar').style.width = `${(idx / questions.length) * 100}%`;
+        
+        const wrap = document.getElementById('questionOptions');
+        wrap.innerHTML = '';
+        
+        q.options.forEach((opt, optionIdx) => {
+            const btn = document.createElement('button');
+            btn.className = 'quiz-option' + (answers[idx] === optionIdx ? ' selected' : '');
+            btn.textContent = opt.text;
+            btn.addEventListener('click', () => {
+                answers[idx] = optionIdx;
+                renderQuestion();
+            });
+            wrap.appendChild(btn);
+        });
+    }
+
+    function calculateScore() {
+        return answers.reduce((total, answerIndex, qIndex) => 
+            total + (answerIndex === null ? 0 : questions[qIndex].options[answerIndex].score), 0);
+    }
+
+    function resultProfile(score) {
+        if (score >= 28) {
+            return {
+                title: 'You have strong pricing psychology.',
+                summary: 'Your commercial confidence is present. The next unlock is sharper premium positioning, increased visibility, and deliberate authority-building in your market.'
+            };
+        }
+        if (score >= 16) {
+            return {
+                title: 'You are close — but inconsistent.',
+                summary: 'You hold your value in some situations, then slip into overdelivery and discounting. This inconsistency creates a ceiling on your revenue that is psychological, not market-driven.'
+            };
+        }
+        return {
+            title: 'Self-perception is actively capping your rates.',
+            summary: 'Your internal narrative about money, worth, and charging is setting your price floor. The good news: this is trainable. With deliberate cognitive restructuring, you can rewire these patterns.'
+        };
+    }
+
+    // ============================================
+    // EMAIL DELIVERY SYSTEMS
+    // ============================================
+    
+    async function sendToGoogleSheets(payload) {
+        try {
+            const response = await fetch(CONFIG.googleScriptURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            return { ok: true, message: 'Your results have been recorded and are on the way to your inbox.' };
+        } catch (error) {
+            console.error('Google Sheets error:', error);
+            return { ok: false, message: 'Delivery system temporarily unavailable.' };
+        }
+    }
+
+    async function sendViaEmailJS(payload) {
+        try {
+            const response = await emailjs.send(
+                CONFIG.emailjsServiceID,
+                CONFIG.emailjsTemplateID,
+                {
+                    to_name: payload.name,
+                    to_email: payload.email,
+                    audit_score: payload.score,
+                    audit_profile: payload.profile,
+                    audit_summary: payload.summary,
+                    toolkit_link: CONFIG.founderToolkit,
+                    consultation_link: CONFIG.businessConsultation
+                }
+            );
+            return { ok: true, message: 'Your detailed results are in your inbox.' };
+        } catch (error) {
+            console.error('EmailJS error:', error);
+            return { ok: false, message: 'Backup delivery activated.' };
+        }
+    }
+
+    async function sendAuditEmail(payload) {
+        // Primary: Google Sheets + Apps Script (triggers automatic email)
+        let result = await sendToGoogleSheets(payload);
+        
+        // If Google Sheets fails, use EmailJS as backup
+        if (!result.ok) {
+            result = await sendViaEmailJS(payload);
+        }
+        
+        return result;
+    }
+
+    // ============================================
+    // EVENT HANDLERS
+    // ============================================
+    
+    document.getElementById('nextQuestionBtn').addEventListener('click', () => {
+        if (answers[idx] === null) {
+            alert('Please select one answer to continue.');
+            return;
+        }
+        if (idx < questions.length - 1) {
+            idx += 1;
+            renderQuestion();
+            return;
+        }
+        // Move to email collection
+        document.getElementById('quizStep').classList.remove('active');
+        document.getElementById('emailStep').classList.add('active');
+        document.getElementById('progressBar').style.width = '100%';
+    });
+
+    document.getElementById('getResultsBtn').addEventListener('click', async () => {
+        const name = document.getElementById('auditName').value.trim();
+        const email = document.getElementById('auditEmail').value.trim();
+        
+        if (!email) {
+            alert('Please enter your email address to receive your results.');
+            return;
+        }
+
+        // Show loading state
+        const btn = document.getElementById('getResultsBtn');
+        const btnText = document.getElementById('btnText');
+        btnText.innerHTML = '<span class="loading-spinner"></span> Sending...';
+        btn.disabled = true;
+
+        const score = calculateScore();
+        const profile = resultProfile(score);
+        const payload = {
+            name: name || 'Founder',
+            email,
+            score,
+            profile: profile.title,
+            summary: profile.summary,
+            toolkit_preview_link: CONFIG.founderToolkit,
+            consultation_link: CONFIG.businessConsultation,
+            submitted_at: new Date().toISOString(),
+            source: 'pricing_audit_website'
+        };
+
+        const sendResult = await sendAuditEmail(payload);
+
+        // Display results
+        document.getElementById('emailStep').classList.remove('active');
+        document.getElementById('resultStep').classList.add('active');
+        document.getElementById('resultTitle').textContent = profile.title;
+        document.getElementById('resultScore').textContent = `${score}/35`;
+        document.getElementById('resultSummary').textContent = profile.summary;
+        
+        if (sendResult.ok) {
+            document.getElementById('deliveryMessage').innerHTML = `
+                <strong style="color: var(--accent-gold);">✓ ${sendResult.message}</strong><br><br>
+                <small>We've sent your complete audit breakdown to <strong>${email}</strong>. 
+                Check your inbox (and spam folder, just in case) for your toolkit preview link.</small>
+            `;
+        } else {
+            document.getElementById('deliveryMessage').innerHTML = `
+                <strong style="color: var(--accent-gold);">Your Score: ${score}/35 — ${profile.summary}</strong><br><br>
+                <small>Email delivery is processing. In the meantime, you can 
+                <a href="mailto:${email}?subject=My Pricing Audit Results&body=Score: ${score}/35%0D%0AProfile: ${profile.title}%0D%0A%0D%0A${profile.summary}%0D%0A%0D%0AToolkit: ${CONFIG.founderToolkit}" style="color: var(--accent-gold);">email yourself a copy</a> 
+                or screenshot this page.</small>
+            `;
+        }
+
+        btnText.textContent = 'Send my results →';
+        btn.disabled = false;
+    });
+
+    // Waitlist Form Handler
+    document.getElementById('waitlistForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const submitBtn = document.getElementById('waitlistSubmitBtn');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Joining...';
+        submitBtn.disabled = true;
+
+        const name = document.getElementById('waitlistName').value.trim();
+        const email = document.getElementById('waitlistEmail').value.trim();
+
+        try {
+            // Send to Google Sheets for waitlist collection
+            await fetch(CONFIG.googleScriptURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name,
+                    email,
+                    type: 'waitlist_signup',
+                    programme: 'Scale Ready Programme',
+                    submitted_at: new Date().toISOString()
+                })
+            });
+
+            document.getElementById('waitlistMessage').style.display = 'block';
+            document.getElementById('waitlistMessage').style.color = 'var(--accent-gold)';
+            document.getElementById('waitlistMessage').textContent = 
+                'You\'re on the list! We\'ll notify you when enrolment opens.';
+            document.getElementById('waitlistForm').reset();
+        } catch (error) {
+            document.getElementById('waitlistMessage').style.display = 'block';
+            document.getElementById('waitlistMessage').style.color = '#cc4444';
+            document.getElementById('waitlistMessage').textContent = 
+                'Connection issue. Please try again or email us directly.';
+        } finally {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }
+    });
+
+    // ============================================
+    // COUNTDOWN TIMER
+    // ============================================
+    function setEarlyBirdDeadline() {
+        const deadline = new Date();
+        deadline.setDate(deadline.getDate() + 14);
+        deadline.setHours(23, 59, 59);
+        
+        function updateCountdown() {
+            const now = new Date();
+            const diff = deadline - now;
+            
+            if (diff <= 0) {
+                document.getElementById('countdownTimer').innerHTML = 'Early bird closing — join now';
+                return;
+            }
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const mins = Math.floor((diff % (1000 * 60 * 60)) / 60000);
+            
+            document.getElementById('countdownTimer').innerHTML = 
+                `Early bird closes in: ${days}d ${hours}h ${mins}m`;
+        }
+        
+        updateCountdown();
+        setInterval(updateCountdown, 60000);
+    }
+
+    // ============================================
+    // INITIALIZATION
+    // ============================================
+    renderQuestion();
+    setEarlyBirdDeadline();
+</script>
+</body>
+</html>
