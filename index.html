@@ -11,8 +11,6 @@
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
 
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -720,14 +718,8 @@
 </footer>
 
 <script>
-    (function() {
-        emailjs.init("YOUR_EMAILJS_PUBLIC_KEY");
-    })();
-
     const CONFIG = {
-        googleScriptURL: 'https://script.google.com/macros/s/AKfycbzfgMCh7HPMqZ91mBAYywTby4MHHOt5ITJ6Z9ZWJVKudd3ZCP4E-KI9VEyKKQw3qjBfsw/exec',
-        emailjsServiceID: 'YOUR_EMAILJS_SERVICE_ID',
-        emailjsTemplateID: 'YOUR_EMAILJS_TEMPLATE_ID',
+        auditEndpoint: 'https://hook.eu1.make.com/b36jwnh9pim5f2negu3tfr7g8tmfn6dj',
         founderToolkit: 'https://serahmuindi.selar.com/9m75i41u05',
         businessConsultation: 'https://serahmuindi.selar.com/z1777966ci',
         therapistGuide: 'https://serahmuindi.selar.com/azjdx44799',
@@ -843,41 +835,22 @@
         };
     }
 
-    async function sendToGoogleSheets(payload) {
+    async function sendAuditEmail(payload) {
         try {
-            await fetch(CONFIG.googleScriptURL, {
+            const response = await fetch(CONFIG.auditEndpoint, {
                 method: 'POST',
-                mode: 'no-cors',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             });
-            return { ok: true, message: 'Your results have been recorded and are on their way.' };
+            return {
+                ok: response.ok,
+                message: response.ok
+                    ? 'Your detailed results are on their way to your inbox.'
+                    : 'Email delivery failed. Please try again.'
+            };
         } catch (error) {
-            return { ok: false };
+            return { ok: false, message: 'Network error. Please check your connection and try again.' };
         }
-    }
-
-    async function sendViaEmailJS(payload) {
-        try {
-            await emailjs.send(CONFIG.emailjsServiceID, CONFIG.emailjsTemplateID, {
-                to_name: payload.name,
-                to_email: payload.email,
-                audit_score: payload.score,
-                audit_profile: payload.profile,
-                audit_summary: payload.summary,
-                toolkit_link: CONFIG.founderToolkit,
-                consultation_link: CONFIG.businessConsultation
-            });
-            return { ok: true, message: 'Your detailed results are in your inbox.' };
-        } catch (error) {
-            return { ok: false, message: 'Backup delivery activated.' };
-        }
-    }
-
-    async function sendAuditEmail(payload) {
-        let result = await sendToGoogleSheets(payload);
-        if (!result.ok) result = await sendViaEmailJS(payload);
-        return result;
     }
 
     document.getElementById('nextQuestionBtn').addEventListener('click', () => {
