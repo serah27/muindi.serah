@@ -927,9 +927,8 @@
         const email = document.getElementById('waitlistEmail').value.trim();
 
         try {
-            await fetch(CONFIG.googleScriptURL, {
+            await fetch(CONFIG.auditEndpoint, {
                 method: 'POST',
-                mode: 'no-cors',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     name, email,
